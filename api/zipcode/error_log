@@ -1,0 +1,41 @@
+[11-Apr-2021 20:59:52 UTC] PHP Notice:  Trying to get property 'zip' of non-object in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 13
+[11-Apr-2021 21:01:55 UTC] PHP Recoverable fatal error:  Object of class stdClass could not be converted to string in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 12
+[11-Apr-2021 21:13:05 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 21:13:20 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 21:16:06 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:16:43 UTC] PHP Deprecated:  parse_str(): Calling parse_str() without the result argument is deprecated in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 6
+[11-Apr-2021 21:16:43 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:19:58 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:20:49 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:21:51 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 21:24:36 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:24:36 UTC] PHP Fatal error:  Uncaught Error: Call to a member function close() on boolean in /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php:69
+Stack trace:
+#0 /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php(45): SQLQuery->query('SELECT * FROM `...')
+#1 /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php(12): SQLQuery->select('32836', 'id')
+#2 /home/avanshfw/poweringhomes.com/api/zipcode/index.php(2): include_once('/home/avanshfw/...')
+#3 {main}
+  thrown in /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php on line 69
+[11-Apr-2021 21:24:37 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:24:37 UTC] PHP Fatal error:  Uncaught Error: Call to a member function close() on boolean in /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php:69
+Stack trace:
+#0 /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php(45): SQLQuery->query('SELECT * FROM `...')
+#1 /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php(12): SQLQuery->select('32836', 'id')
+#2 /home/avanshfw/poweringhomes.com/api/zipcode/index.php(2): include_once('/home/avanshfw/...')
+#3 {main}
+  thrown in /home/avanshfw/poweringhomes.com/api/classes/SQLQuery.class.php on line 69
+[11-Apr-2021 21:26:54 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:27:50 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 21:29:36 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 22:05:42 UTC] PHP Notice:  Undefined offset: 0 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 10
+[11-Apr-2021 22:13:37 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:15:17 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:16:20 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:17:01 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 22:17:01 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:17:52 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 22:17:52 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:19:43 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 22:19:43 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
+[11-Apr-2021 22:20:23 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 7
+[11-Apr-2021 22:20:23 UTC] PHP Notice:  Undefined offset: 1 in /home/avanshfw/poweringhomes.com/api/zipcode/zipcode.php on line 9
