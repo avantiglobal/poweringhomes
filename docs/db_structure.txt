@@ -1,0 +1,94 @@
+User
+● user_id
+● name
+● lastname
+● nickname
+● phone
+● email
+● address
+● type
+	1 Seller
+	2 Project Manager
+	3 Developer
+	4 Administrator
+	5 Accountant
+● agency_id
+● username
+● password
+● preferences
+● date_in
+● date_out
+● status
+	1 Active
+	2 Inactive
+
+-> 15 Fields
+
+-------------------------------------
+
+Client
+● ID_client
+● Name
+● Address ● Phone ● Email
+● ID_user ● Type
+	○ Contact
+	○ Cold Lead
+	○ Hot Lead
+	○ Active Client
+	○ Returning Client
+	○ Former Client
+● Tag
+	○ Near to normal
+	○ Great client
+	○ High maintenance
+	○ High expectations
+	○ Totally unrealistic
+	○ Straight to the point
+● Company_name ● Company_about ● Budget
+● Target_audience ● Website
+● Webhost_company
+● Use_existing_website_content ● intended_domain
+
+Proposal
+● ID_proposal
+● ID_client
+● ID_plan
+● ID_proposal_template 
+● Description
+● Extra_features
+● Extra_price
+● Total
+
+Proposal_template
+● ID_proposal_template ● Name
+● Description
+● Template
+ Plan
+● ID_plan
+● Name
+● Description ● Price
+Project
+● ID_project
+● Name
+● ID_client
+● Priority
+● Date_created
+● Date_ended
+● ID_project_manager
+Task
+● ID_task
+● Name
+● Description
+● ID_project
+● Priority
+● Status
+● Date_created ● Date_ended
+
+-------------------------------------------
+
+Permissions
+● ID_user
+● ID_section
+● Description Agency
+● ID_agency
+● Name
