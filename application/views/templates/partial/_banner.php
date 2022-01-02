@@ -14,19 +14,40 @@
           <p class="col-lg-10 fs-4">Powering Homes delivers home energy solutions that save you money. We provide a solution to low cost, clean, reliable energy your family can depend on.</p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
-          <form class="home-hero__form p-4 p-md-5 border rounded-3 bg-light text-dark">
+          <form action="https://poweringhomes.us20.list-manage.com/subscribe/post" method="POST" class="home-hero__form p-4 p-md-5 border rounded-3 bg-light text-dark">
+            <input type="hidden" name="u" value="aad2f2c4798bbbd103866dfb8">
+            <input type="hidden" name="id" value="221fadc194">
+    
+            <!-- people should not fill these in and expect good things -->
+            <div class="d-none field-shift" aria-label="Please leave the following three fields empty">
+                <label for="b_name">Name: </label>
+                <input type="text" name="b_name" tabindex="-1" value="" placeholder="Freddie" id="b_name">
+
+                <label for="b_email">Email: </label>
+                <input type="email" name="b_email" tabindex="-1" value="" placeholder="youremail@gmail.com" id="b_email">
+
+                <label for="b_comment">Comment: </label>
+                <textarea name="b_comment" tabindex="-1" placeholder="Please comment" id="b_comment"></textarea>
+            </div>
+
             <h4>Request a Free Quote</h4>
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingName" placeholder="Name" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-              <label for="floatingName">Name</label>
+            <div class="d-flex justify-content-between">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="MERGE1" id="MERGE1" placeholder="Name" >
+                <label for="MERGE1">Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="MERGE2" id="MERGE2" placeholder="Last Name" >
+                <label for="MERGE2">Last Name</label>
+              </div>
             </div>
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-              <label for="floatingInput">Email address</label>
+              <input type="email" class="form-control" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" placeholder="name@example.com">
+              <label for="MERGE0">Email address</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="tel" class="form-control" id="floatingPhone" placeholder="Phone" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
-              <label for="floatingPhone">Phone</label>
+              <input type="tel" class="form-control" name="MERGE4" id="MERGE4" placeholder="Phone" >
+              <label for="MERGE4">Phone</label>
             </div>
             <!-- <div class="checkbox mb-3">
               <label>
