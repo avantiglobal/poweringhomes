@@ -91,7 +91,6 @@ class Template {
             if ($doNotRenderControlSidebar == 0) {
                 if (file_exists(PUBLIC_PATH . $themePath . $theme.'/control-sidebar.php')) {
                     include (PUBLIC_PATH . $themePath . $theme.'/control-sidebar.php');
-
                 }
             }
 

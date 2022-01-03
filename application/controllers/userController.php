@@ -4,10 +4,11 @@
 class UserController extends Controller {
     
     function beforeAction () {
+        $this->actionScope = 'public';
         //$this->setLayout('frontend');
         $this->setTheme('poweringhomes');
         $this->set('user_img','/img/user/default.jpg');
-        $this->set('user_name', 'John Doe');
+        // $this->set('user_name', 'John Doe');
         //$this->set('sidebar_menu', '      ');
     }
 
@@ -150,8 +151,9 @@ class UserController extends Controller {
     }
 
     function dashboard(){
-        $this->set('page_header', 'Dashboard');
-        $this->set('renderContentInline', 1);
+        $this->set('page_header', 'Dashboard 1');
+        $this->doNotRenderFooter = 1;
+        // $this->set('renderContentInline', 1);
         
         // $this->User->selectAll();
         // $this->set('num_users',$this->User->getNumRows());
@@ -180,12 +182,12 @@ class UserController extends Controller {
         $msgResponse = $Message->Message->add($arrKeys);
 
         $to      = Application::getConfig('company.email');
-        $subject = "Message from agerig website";
+        $subject = "Message from " . Application::getConfig('company.name') . " website";
 
         $message = "
                     <html>
                         <head>
-                            <title>agerig - New Message</title>
+                            <title>" . Application::getConfig('company.name') . " - New Message</title>
                         </head>
                         <body>
                             <p>You've got a new message from</p>

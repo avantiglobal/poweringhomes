@@ -4,7 +4,7 @@
 <script src="/assets/ckeditor/ckeditor.js"></script>
 
 <!-- Header Template -->
-<?php include_once(TEMPLATE_PATH . '/partials/_top_menu.php')  ?>
+<?php include_once(TEMPLATE_PATH . '/partial/_top_menu.php')  ?>
 <main class="flex-margin">
 	<!-- alert  TODO: include this in a HTML helper-->
 	<div class="container">

@@ -1,10 +1,9 @@
-
 <div class="login-form">
-  <div class="container flex-margin py-5 border-bottom">
-    <div class="row">
+  <div class="container">
+    <div class="row flex-margin py-5 border-bottom">
       <div class="col-12 col-md-8 col-lg-5 m-auto px-3">
-        <form>
-          <img class="img-thumbnail rounded-circle mx-auto d-block" src="<?php echo '/img/logo.png' ?>" alt="agerig logo">
+        <form class="py-md-5">
+          <img class="img-thumbnail rounded-circle mx-auto d-block" src="<?php echo '/img/logo.png' ?>" alt="company logo">
 
           <h3 class="profile-username text-start">User Login</h3>
           <!-- <div class="mt-3 mb-3">
@@ -18,7 +17,7 @@
           </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="password" placeholder="Password">
+            <input type="password" class="form-control" id="password" placeholder="Password">
             <label for="floatingName">Password</label>
           </div>
         
@@ -30,7 +29,7 @@
           <div class="mb-3 text-center" id="add_err"></div>
         
           <div class="mb-3">
-              <a href="" class="btn btn-primary d-block" id="btn-login">Login <span id="preloader"></span></a>
+              <a href="" class="btn btn-primary d-block py-3" id="btn-login">Login <span id="preloader"></span></a>
           </div>
         
           <div class="col-sm-12 text-center">

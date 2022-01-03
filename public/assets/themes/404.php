@@ -11,21 +11,20 @@
     <!-- Bootstrap 4 core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Theme style -->
-    <link href="/assets/themes/agerig/css/style.css" rel="stylesheet">
+    <link href="/assets/themes/poweringhomes/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="aligner" style="height:100vh;">
+    <div class="d-flex align-items-center justify-content-center" style="height:100vh;">
         <div class="aligner-item text-center">
-            <i class="fa fa-warning" style="color:blue; font-size:40px;"></i>
-            <h3>Ooops!</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+            </svg>
+            <h1>Ooops!</h1>
             <p>Sorry. The page you requested was not found.</p>
             <small>Scroll down for more details</small>
         </div>
     </div>
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/057583ce1e.js"></script>
-  </body>
+</body>
 </html>

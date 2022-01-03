@@ -82,6 +82,10 @@ class PageController extends Controller {
         return '13';*/
     }
 
+    function thankyou(){
+        echo "Thank You";
+    }
+
     function afterAction() {
 
     }

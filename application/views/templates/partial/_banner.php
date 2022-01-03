@@ -1,7 +1,7 @@
 <div class="home-hero">
   <div class="home-hero__video-wrapper" style="">
     <!-- <div class="home-hero__video-wrapper__video"> -->
-    <div class="home-hero__video-wrapper__video" style="background: url(https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80); background-position: center;">
+    <div class="home-hero__video-wrapper__video" style="background: url(/img/site/american-public-power-association-513dBrMJ_5w-unsplash.jpg); background-position: center;">
       <!-- <script src="https://fast.wistia.com/embed/medias/22o52ic09c.jsonp" async></script><script src="https://fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_22o52ic09c videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div></div></div>    -->
     </div>
   </div>
@@ -31,12 +31,12 @@
             </div>
 
             <h4>Request a Free Quote</h4>
-            <div class="d-flex justify-content-between">
-              <div class="form-floating mb-3">
+            <div class="d-flex">
+              <div class="form-floating mb-3 flex-fill me-1">
                 <input type="text" class="form-control" name="MERGE1" id="MERGE1" placeholder="Name" >
                 <label for="MERGE1">Name</label>
               </div>
-              <div class="form-floating mb-3">
+              <div class="form-floating mb-3 flex-fill ms-2">
                 <input type="text" class="form-control" name="MERGE2" id="MERGE2" placeholder="Last Name" >
                 <label for="MERGE2">Last Name</label>
               </div>

@@ -21,7 +21,11 @@ spl_autoload_register(function($className) {
         require_once(APPLICATION_PATH .  '/views/' . strtolower($className) . '.class.php');
     } else {
         /* Error Generation Code Here */
-        echo "Impossible to load class <b>" . $className . "</b><br>";
+        if (file_exists(PUBLIC_PATH . '/assets/themes/404.php')) {
+            include (PUBLIC_PATH . '/assets/themes/404.php');
+        } else {
+            echo "Impossible to load class <b>" . $className . "</b><br>";
+        }
     }
 });
 

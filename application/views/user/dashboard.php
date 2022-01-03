@@ -1,8 +1,9 @@
 <main>
   <!-- Header Template -->
-  <?php include_once(TEMPLATE_PATH . '/partials/_top_menu.php')  ?>
+  <?php include_once(TEMPLATE_PATH . '/partial/_top_menu.php')  ?>
   <section id="dashboard">
     <div class="container flex-margin">
+      <h1><?php echo $page_header ?></h1>
       <div class="row">
         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
           <div class="card bg-danger mb-4 text-white">

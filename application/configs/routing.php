@@ -7,10 +7,12 @@ global $routing;
  * where 'items' is the controller, 'view' is the action and '1' is the queryString 
  */
 $routing = array(
+    '/login/' => 'user/login',
+    '/thankyou/' => 'page/thankyou',
+    // More Examples
     //'/admin\/(.*?)\/(.*?)\/(.*)/' => 'admin/\1_\2/\3',
     //'/(.*)/' => 'page/\1_',
     //'/items/' => 'items/view/2',
-    '/login/' => 'user/login',
     // '/signup/' => 'user/signup',
     //'\/' => 'page',
     //'/template\/(.*?)/' => '/protemplate\/(.*?)/'

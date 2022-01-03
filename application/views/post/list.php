@@ -1,5 +1,5 @@
 <!-- Header Template -->
-<?php include_once(TEMPLATE_PATH . '/partials/_top_menu.php')  ?>
+<?php include_once(TEMPLATE_PATH . '/partial/_top_menu.php')  ?>
 <main class="flex-margin">
 	<div class="row content-header bg-light">
 		<div class="col-auto mr-auto content-header__title">

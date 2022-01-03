@@ -3,7 +3,7 @@
 class PostController extends Controller {
     
     function beforeAction () {
-        //$this->actionScope = 'public';
+        $this->actionScope = 'public';
         //$this->setLayout('frontend');
         $this->setTheme(Application::getConfig('default.theme'));
     }
