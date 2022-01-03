@@ -1,29 +1,39 @@
-<div class="top-menu flex-margin" id="top-menu">
-      <div class="row">
-        <div class="col-1">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-            <h2 class="d-inline toggler-icon"><i class="bi bi-list" class="navbar-toggle"></i></h2>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+            <svg fill="#333" class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
           </a>
-          
-        </div>
-        <div class="col-11">
-          <nav id="db-top-bar">
-            <ul class="nav-icons">
-              <li><a href="#"><i class="bi bi-bell bell-icon"></i></a></li>
-              <li>
-                
-                <div class="dropdown show">
-                  <i class="bi bi-person user-icon dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Settings</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item btn-logout" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </nav>
+          <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+            <li>
+              <a href="#" class="nav-link text-secondary">
+                <svg fill="#333" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg fill="#333" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg fill="#333" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+                Orders
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg fill="#333" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+                Products
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white">
+                <svg fill="#333" class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                Customers
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
-  </div>

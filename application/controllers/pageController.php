@@ -85,6 +85,10 @@ class PageController extends Controller {
     function thankyou(){
         echo "Thank You";
     }
+    
+    function contact(){
+        
+    }
 
     function afterAction() {
 

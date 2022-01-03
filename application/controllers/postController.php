@@ -43,6 +43,16 @@ class PostController extends Controller {
         $this->set('page_description', 'Posts');
         $this->set('todo',$this->Post->selectAll());
     }
+
+    function all() {
+        // $this->doNotRenderContentHeader = 1;
+        //$this->set('renderContentInline', 1);
+        $this->set('page_header', 'Posts');
+        $this->set('page_description', 'Posts');
+        $this->set('banner_title', 'Blog');
+        $this->set('banner_subtitle', 'Stay informed about our news and insights.');
+        $this->set('posts',$this->Post->selectAll());
+    }    
      
     function add() {
         $this->doNotRenderHTML = 1;

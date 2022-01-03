@@ -43,3 +43,6 @@ function routeURL($url) {
 function includeTpl($tplName) {
     include_once(TEMPLATE_PATH . $tplName . '.php');
 }
+function includeTpl2($tplName) {
+    include_once(TEMPLATE_PATH . $tplName);
+}
