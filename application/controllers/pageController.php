@@ -87,7 +87,18 @@ class PageController extends Controller {
     }
     
     function contact(){
-        
+        $this->set('banner_title', 'Contact');
+        $this->set('banner_subtitle', 'Let\'s keep in touch.');
+    }
+
+    function areas_served(){
+        $this->set('banner_title', 'Areas Served');
+        $this->set('banner_subtitle', 'This Is Where We Work.');
+    }
+
+    function faqs(){
+        $this->set('banner_title', 'FAQ\'s');
+        $this->set('banner_subtitle', 'Do you have questions? We hope you can your answers here.');
     }
 
     function afterAction() {

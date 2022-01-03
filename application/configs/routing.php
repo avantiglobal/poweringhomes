@@ -10,7 +10,8 @@ $routing = array(
     '/login/' => 'user/login',
     '/thankyou/' => 'page/thankyou',
     '/contact/' => 'page/contact',
-    '/areas-served/' => 'page/areas-served',
+    '/areas-served/' => 'page/areas_served',
+    '/faqs/' => 'page/faqs',
     '/blog/' => 'post/all',
     // More Examples
     //'/admin\/(.*?)\/(.*?)\/(.*)/' => 'admin/\1_\2/\3',

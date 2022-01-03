@@ -40,7 +40,8 @@ function routeURL($url) {
     return ($url);
 }
 
-function includeTpl($tplName) {
+function includeTpl($tplName, $variables = array()) {
+    extract($variables);
     include_once(TEMPLATE_PATH . $tplName . '.php');
 }
 function includeTpl2($tplName) {

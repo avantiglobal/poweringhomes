@@ -1,8 +1,8 @@
 <!-- Header Template -->
 
-<?php includeTpl('/partial/_banner_blog') ?>
+<?php includeTpl('/partial/_banner_simple', $this->variables) ?>
 
-<main class="flex-margin">
+<main>
 	<section class="post post__list">
 		<div class="container">
 			<div class="content">

@@ -16,16 +16,16 @@
       <h5>Resources</h5>
       <ul class="list-unstyled text-small">
         <li><a class="link-secondary" href="/blog">Blog</a></li>
-        <li><a class="link-secondary" href="#">FAQs</a></li>
+        <li><a class="link-secondary" href="/faqs">FAQs</a></li>
       </ul>
     </div>
     <div class="col-6 col-lg-3 ps-md-3">
       <h5>About</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="link-secondary" href="#">Areas Served</a></li>
+        <li><a class="link-secondary" href="/areas-served">Areas Served</a></li>
         <li><a class="link-secondary" href="#">Privacy</a></li>
         <li><a class="link-secondary" href="#">Terms</a></li>
-        <li><a class="link-secondary" href="#">Contact</a></li>
+        <li><a class="link-secondary" href="/contact">Contact</a></li>
       </ul>
     </div>
   </div>
