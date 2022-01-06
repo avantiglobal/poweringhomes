@@ -347,8 +347,8 @@ body {
 
 @media (max-width: 575px) {
   .navbar-brand__logo {
-    max-width: 250px;
-    height: 100%;
+    width: auto;
+    max-height: 50px;
   }
 }
 
@@ -367,7 +367,7 @@ body {
 /* Responsive Design */
 @media (max-width: 575px) {
   .clear-fixed-top {
-    padding-top: 80px !important;
+    padding-top: 75px !important;
   }
 }
 
