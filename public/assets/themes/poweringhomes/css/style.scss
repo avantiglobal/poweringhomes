@@ -228,8 +228,8 @@ body {
   // Site Sections
   .home-hero{
     position:relative;
-    height: 550px;
-    max-height: calc(100vh - 50px);
+    min-height: 550px;
+    max-height: calc(100vh - 25px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,8 +240,8 @@ body {
       width: 100%;
       z-index: 2;
       overflow: hidden;
-      height:550px;
-      max-height: calc(100vh - 50px);
+      min-height:550px;
+      max-height: calc(100vh - 25px);
       &__video{
         object-fit: cover;
         object-position: center center;
@@ -260,12 +260,16 @@ body {
       z-index: 3;
     }
     &__content-wrapper{
-      position: absolute;
+      //position: absolute;
       z-index: 4;
     }
     &__form{
       background-color: rgba($color: #FFF, $alpha: .85) !important;
       border:none;
+    }
+    @media (max-width: 575px) { 
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
     }
   }
 
@@ -329,12 +333,27 @@ body {
     cursor: pointer;
 }
 
+.navbar{
+  &-brand{
+    &__logo{
+      @media (max-width: 575px) {
+        max-width: 250px;
+        height: 100%;
+      }
+    }
+  }
+}
+
 .divider-1{ height: 2%; }
 .divider-2{ height: 7%; }
 .divider-3{ height: 15%; }
 
 /* Responsive Design */
-
+@media (max-width: 575px) { 
+  .clear-fixed-top{
+    padding-top: 80px !important;
+  }
+}
 /* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 767px) { 
     // header{ display: none; }

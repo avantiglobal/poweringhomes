@@ -14,7 +14,7 @@
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <img src="<?php echo "/img/poweringhomes-logo.png" ?>" alt="Powering Homes">
+        <img src="<?php echo "/img/poweringhomes-logo.png" ?>" alt="Powering Homes" class="navbar-brand__logo" >
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

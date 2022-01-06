@@ -1,5 +1,5 @@
  <!-- FOOTER -->
- <footer class="container py-5">
+ <footer class="container p-3 py-md-5">
   <div class="row">
     <div class="col-12 col-md-12  col-lg-3 mb-3 text-center">
       <img src="/img/poweringhomes-logo-alt.png" alt="Powering Homes" loading="lazy" class="img-fluid">

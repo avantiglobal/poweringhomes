@@ -1,4 +1,4 @@
-<div class="testimonials pt-md-5">
+<div class="testimonials pt-5 pb-2">
   <div class="container">
     <div class="text-center">
         <h3 class="display-6 fw-bold pb-md-2">Explore Our Customer Experiences</h3>
@@ -13,61 +13,61 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row">
-            <div class="col-md-6 col-lg-5 m-auto py-2 pt-md-3 mt-md-3 pb-md-0">
+            <div class="col-md-6 col-lg-5 m-auto pt-5 pb-1 mt-md-3 pb-md-0">
               <div class="testimonial">
                 <p>Excelente el trabajo realizado por el señor Iván. Realmente súper profesional en todos los aspectos.</p>
               </div>
               <div class="media">
-									<!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
-									<div class="media-body">
-										<div class="overview">
-											<div class="name"><b>Elena</b></div>
-											<div class="details">Kissimmee, FL</div>
-											<div class="star-rating">
-												<ul class="list-inline">
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-												</ul>
-											</div>
-										</div>										
-									</div>
-								</div>
+                  <!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
+                  <div class="media-body">
+                    <div class="overview">
+                      <div class="name"><b>Elena</b></div>
+                      <div class="details">Kissimmee, FL</div>
+                      <div class="star-rating">
+                        <ul class="list-inline">
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                        </ul>
+                      </div>
+                    </div>										
+                  </div>
+                </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
-            <div class="col-md-6 col-lg-5 m-auto py-2 pt-md-3 mt-md-3 pb-md-0">
+            <div class="col-md-6 col-lg-5 m-auto pt-5 pb-1 mt-md-3 pb-md-0">
               <div class="testimonial">
                 <p>Muy eficiente la compañía. Se la recomiendo a quien sea que los contrate.</p>
               </div>
               <div class="media">
-									<!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
-									<div class="media-body">
-										<div class="overview">
-											<div class="name"><b>Lazaro</b></div>
-											<div class="details">Orlando, FL</div>
-											<div class="star-rating">
-												<ul class="list-inline">
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-half"></use></svg></li>
-												</ul>
-											</div>
-										</div>										
-									</div>
-								</div>
+                  <!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
+                  <div class="media-body">
+                    <div class="overview">
+                      <div class="name"><b>Lazaro</b></div>
+                      <div class="details">Orlando, FL</div>
+                      <div class="star-rating">
+                        <ul class="list-inline">
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-half"></use></svg></li>
+                        </ul>
+                      </div>
+                    </div>										
+                  </div>
+                </div>
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="row">
-            <div class="col-md-6 col-lg-5 m-auto py-2 pt-md-3 mt-md-3 pb-md-0">
+            <div class="col-md-6 col-lg-5 m-auto pt-5 pb-1 mt-md-3 pb-md-0">
               <div class="testimonial">
                 <p>
                 Definitivamente, tremenda compañía para ver el tema solar. 
@@ -76,23 +76,23 @@
                 </p>
               </div>
               <div class="media">
-									<!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
-									<div class="media-body">
-										<div class="overview">
-											<div class="name"><b>Felipe</b></div>
-											<div class="details">Lake Mary, FL</div>
-											<div class="star-rating">
-												<ul class="list-inline">
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-													<li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
-												</ul>
-											</div>
-										</div>										
-									</div>
-								</div>
+                  <!-- <img src="/examples/images/clients/5.jpg" class="mr-3" alt=""> -->
+                  <div class="media-body">
+                    <div class="overview">
+                      <div class="name"><b>Felipe</b></div>
+                      <div class="details">Lake Mary, FL</div>
+                      <div class="star-rating">
+                        <ul class="list-inline">
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                          <li class="list-inline-item"><svg width="1.75em" height="1.75em"><use xlink:href="#star-fill"></use></svg></li>
+                        </ul>
+                      </div>
+                    </div>										
+                  </div>
+                </div>
             </div>
           </div>
         </div>
