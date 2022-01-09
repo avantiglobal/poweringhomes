@@ -3,7 +3,7 @@
 class PostController extends Controller {
     
     function beforeAction () {
-        // $this->actionScope = 'public';
+        $this->actionScope = 'public';
         //$this->setLayout('frontend');
         $this->setTheme(Application::getConfig('default.theme'));
     }
@@ -25,7 +25,7 @@ class PostController extends Controller {
     }
     
     function view($id = null,$name = null) {
-        //$this->actionScope = 'public';
+        $this->actionScope = 'public';
         // $this->setLayout('frontend');
         //$this->set('doNotRenderContentHeader', 1);
         $this->set('renderContentInline', 1);
@@ -39,7 +39,6 @@ class PostController extends Controller {
      
     function list() {
         // $this->doNotRenderContentHeader = 1;
-        $this->actionScope = 'private';
         $this->doNotRenderFooter = 1;
         $this->set('renderContentInline', 1);
         $this->set('page_header', 'Posts');
@@ -50,7 +49,7 @@ class PostController extends Controller {
     function all() {
         // $this->doNotRenderContentHeader = 1;
         //$this->set('renderContentInline', 1);
-        // $this->doNotRenderFooter = 1;
+        $this->doNotRenderFooter = 1;
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');

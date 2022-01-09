@@ -5,33 +5,19 @@ class PageController extends Controller {
     function beforeAction () {
         // $this->actionScope = 'public';
         $this->setTheme(Application::getConfig('default.theme'));
-        // $this->setLayout(Application::getConfig('default.layout'));
-        // $category_id = 2;
-        // //$this->doNotRenderHeader = 1;
-        // //Setting Hero options
-        // $result = $this->Page->query('SELECT term.id, term.name, term_taxonomy.parent, term_taxonomy.title, 
-        //                                      term_taxonomy.term_id, term_taxonomy.icon
-        //                                 FROM term
-        //                                 INNER JOIN term_taxonomy ON term.id = term_taxonomy.term_id
-        //                                 WHERE term_taxonomy.parent = ' . $category_id);
-        // $this->set('hero', $result);
-        //var_dump($result);
     } 
  
     function home(){
-        // $this->set('doNotRenderHeader', 1);
-        //$this->set('renderContentInline', 1);
+        $this->actionScope = 'public';
     } 
 
     function compare(){
-        //$this->set('doNotRenderContentHeader', 1);
         $this->set('renderContentInline', 1);
         $this->set('text', 'this is a test');
     }
     
     function view($id = null,$name = null) {
-        //$this->set('doNotRenderContentHeader', 1);
-        //$this->set('renderContentInline', 1);
+        $this->actionScope = 'public';
         $this->Page->id = $id;
         //$this->set('page_header','Edit Page');
         $page = @array_shift($this->Page->select($this->Page->id));
@@ -108,20 +94,24 @@ class PageController extends Controller {
     }
 
     function thankyou(){
+        $this->actionScope = 'public';
         echo "Thank You";
     }
     
     function contact(){
+        $this->actionScope = 'public';
         $this->set('banner_title', 'Contact');
         $this->set('banner_subtitle', 'Let\'s keep in touch.');
     }
 
     function areas_served(){
+        $this->actionScope = 'public';
         $this->set('banner_title', 'Areas Served');
         $this->set('banner_subtitle', 'This Is Where We Work.');
     }
 
     function faqs(){
+        $this->actionScope = 'public';
         $this->set('banner_title', 'FAQ\'s');
         $this->set('banner_subtitle', 'Do you have questions? We hope you can your answers here.');
     }
