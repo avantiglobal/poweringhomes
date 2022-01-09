@@ -25,7 +25,7 @@ class PostController extends Controller {
     }
     
     function view($id = null,$name = null) {
-        $this->actionScope = 'public';
+        //$this->actionScope = 'public';
         // $this->setLayout('frontend');
         //$this->set('doNotRenderContentHeader', 1);
         $this->set('renderContentInline', 1);

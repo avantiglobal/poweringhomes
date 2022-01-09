@@ -3,7 +3,7 @@
 class PageController extends Controller {
     
     function beforeAction () {
-        $this->actionScope = 'public';
+        // $this->actionScope = 'public';
         $this->setTheme(Application::getConfig('default.theme'));
         // $this->setLayout(Application::getConfig('default.layout'));
         // $category_id = 2;
