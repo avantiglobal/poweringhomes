@@ -233,6 +233,10 @@ body {
   padding-top: 96px !important;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .post__page {
   min-height: 60vh;
 }

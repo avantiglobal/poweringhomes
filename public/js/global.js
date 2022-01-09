@@ -556,7 +556,7 @@ $(document).ready(function () {
     $('#btn-save-post').click(function () {
         var title = $('#post-title').val();
         var content = CKEDITOR.instances['post-content'].getData();
-        console.log('[CONTENT]', content);
+        //console.log('[CONTENT]', content);
         // var content = $('#post-content').val();
         var id = $('#post-id').val();
         var url = (id === '') ? "/post/add" : "/post/update";
@@ -743,6 +743,27 @@ $(document).ready(function () {
         }
     });
 
+    $('#entity_image').change((e) => {
+        var input = this;
+        var url = $(this).val();
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        // $('#update-image-label').hide();
+        $('#btn-update-img').removeClass('d-none');
+        // console.log('Input', e.target.files[0].name);
+        // console.log('Input', url);
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.img-update-icon').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+        else {
+            $('.img-update-icon').attr('src', '/img/sys/image-fill.svg');
+        }
+    });
+
     $('#form-update-img').submit(function (e) {
         e.preventDefault();
 
@@ -752,72 +773,29 @@ $(document).ready(function () {
         data.append('pic', pic);
         data.append('id', post_id);
 
-        console.log('[DATA]', data);
-
         $.ajax({
-            // url: "/post/upload_image",
-            // type: "POST",
-            // data: new FormData(this),
-            // contentType: false, // Not to set any content header
-            // processData: false, // Not to process data
-            // cache: false,
-            // success: function (data) {
-            //     if (data == 'invalid') {
-            //         // invalid file format.
-            //         $("#err").html("Invalid File !").fadeIn();
-            //     } else {
-            //         console.log('view uploaded file');
-            //         // view uploaded file.
-            //         // $("#preview").html(data).fadeIn();
-            //         // $("#form")[0].reset(); 
-            //     }
-            // },
-            // error: function (xhr, status, error) {
-            //     alert(status);
-            // }
-
             url: '/post/upload_image',
             type: "POST",
             data: data,
-
             cache: false,
             contentType: false,
             processData: false, // Not to process data
             dataType: false,
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 $('#post_image').attr('src', data);
             },
             error: function (e) {
-                alert("error while trying to add or update user!");
+                alert("error while trying to add or update image!");
             }
-
         });
 
-        $.ajax({
-            // url: "/post/upload_image",
-            // type: "POST",
-            // data: new FormData(this),
-            // contentType: false, // Not to set any content header
-            // processData: false, // Not to process data
-            // cache: false,
-            // success: function (data) {
-            //     if (data == 'invalid') {
-            //         // invalid file format.
-            //         $("#err").html("Invalid File !").fadeIn();
-            //     } else {
-            //         console.log('view uploaded file');
-            //         // view uploaded file.
-            //         // $("#preview").html(data).fadeIn();
-            //         // $("#form")[0].reset(); 
-            //     }
-            // },
-            // error: function (xhr, status, error) {
-            //     alert(status);
-            // }
-        });
+        $('#btn-update-img').addClass('d-none');
+    })
 
-        console.log('Updating Image', this);
+    $('.img-update-icon').click(() => {
+        //console.log('open dialog');
+        $('#entity_image').click();
     })
 
     /*$('#active_toggle_switch').click(function(){

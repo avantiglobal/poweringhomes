@@ -49,7 +49,7 @@ class PostController extends Controller {
     function all() {
         // $this->doNotRenderContentHeader = 1;
         //$this->set('renderContentInline', 1);
-        $this->doNotRenderFooter = 1;
+        // $this->doNotRenderFooter = 1;
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');

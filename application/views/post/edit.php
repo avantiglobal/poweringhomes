@@ -62,16 +62,22 @@
 							<div class="row">
 								<div class="col-12">
 									<form method="post" id="form-update-img" enctype="multipart/form-data">
-										<div>
-											<img src="<?php echo $post['post_image'] ?>" alt="" id="post_image" style="width:100%; height:100%;">
+										<div class="d-flex align-items-center justify-content-center w-100" style="min-height:150px;">
+											<?php if ($post['post_image'] == ''){
+												echo '<img src="/img/sys/image-fill.svg" alt="Click to select an image" id="img-update-icon" class="img-update-icon cursor-pointer" >';
+											}else{
+											?>
+											<img src="<?php echo $post['post_image'] ?>" alt="Click to select another image" id="post_image" style="width:100%; height:100%;" class="img-update-icon cursor-pointer">
+											<?php } ?>
 										</div>
-										<div>
+										<div class="d-none">
 											<label for="file">Choose file to upload</label>
-											
-											<input type="file" id="entity_image" name="entity_image" accept="image/*"  />
+											<input type="file" id="entity_image" name="entity_image" accept="image/*">
 										</div>
-										
-										<button id="btn-update-img">Update Image</button>
+										<div class="text-center pt-1 pb-3">
+											<small id="update-image-label">Click to select a new image</small>
+											<button class="btn btn-secondary text-center d-none" id="btn-update-img">Update Image</button>
+										</div>
 										<input type="hidden" id="post_id" value="<?php echo $post['id'] ?>">
 									</form>
 								</div>
