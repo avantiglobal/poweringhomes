@@ -225,8 +225,16 @@ body {
   color: #ffdc12;
 }
 
+.dropdown-item.active, .dropdown-item.dropdown-item:active {
+  background-color: none !important;
+}
+
 .clear-fixed-top {
   padding-top: 96px !important;
+}
+
+.post__page {
+  min-height: 60vh;
 }
 
 .home-hero {

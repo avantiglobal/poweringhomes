@@ -48,7 +48,8 @@
         </ul>
         <?php if (isset($_SESSION['id'])){ ?> 
           <div class="d-flex">
-            <a href="/user/dashboard">My Account</a>
+            <a href="/user/dashboard" class="px-4">Dashboard</a>
+            <a href="/user/logout">Logout</a>
           </div>
         <?php } ?>
       </div>

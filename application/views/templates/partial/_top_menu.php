@@ -1,4 +1,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+<div class="nav-scroller bg-body shadow-sm py-1">
+  <div class="container">
+    <nav class="nav nav-underline" aria-label="Secondary navigation">
+      <a class="nav-link" href="/page/list">Pages</a>
+      <a class="nav-link" href="/post/list">Posts</a>
+      <a class="nav-link" href="#">Settings</a>
+      <a class="nav-link" href="#">
+        Messages
+        <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+      </a>
+    </nav>
+  </div>
+</div>
+<!-- 
 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <svg fill="#333" class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
@@ -36,4 +51,4 @@
               </a>
             </li>
           </ul>
-        </div>
+        </div> -->

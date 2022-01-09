@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row flex-margin py-5 border-bottom">
       <div class="col-12 col-md-8 col-lg-5 m-auto px-3">
-        <form class="py-md-5">
+        <form class="py-md-5" id="login-form">
           <img class="img-thumbnail rounded-circle mx-auto d-block" src="<?php echo '/img/logo.png' ?>" alt="company logo">
 
           <h3 class="profile-username text-start">User Login</h3>
@@ -28,8 +28,8 @@
         
           <div class="mb-3 text-center" id="add_err"></div>
         
-          <div class="mb-3">
-              <a href="" class="btn btn-primary d-block py-3" id="btn-login">Login <span id="preloader"></span></a>
+          <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-primary w-100 py-3" id="btn-login">Login <span id="preloader"></span></button>
           </div>
         
           <div class="col-sm-12 text-center">

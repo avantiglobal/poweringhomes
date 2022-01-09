@@ -1,37 +1,59 @@
 $(document).ready(function () {
-    var toggleMenu = false;
-
-    // General functions
+    //--- General functions
     function emailIsValid(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     }
 
-    // Onload function
-    $(function () {
-        // $('#data_table').DataTable({
-        //     'paging': true,
-        //     'lengthChange': false,
-        //     'searching': true,
-        //     'ordering': true,
-        //     'info': true,
-        //     'autoWidth': false
-        // });
+    function showError(errMessage, errElement = '#add_err') {
+        $(errElement).text(errMessage);
+        $(errElement).css('color', '#c00');
+    }
 
-        $("#add_err").css('display', 'none', 'important');
-        if ($('#intended_domain').val() !== '') {
-            $('#existing-website').hide();
-            $('#new-website').show();
-            $("input[name=has-website][value='new']").prop("checked", true);
+    function clearError(errElement = '#add_err') {
+        $(errElement).html("");
+    }
+    // ----
+
+    //Onload function
+    // $(function () {
+    //     // $('#data_table').DataTable({
+    //     //     'paging': true,
+    //     //     'lengthChange': false,
+    //     //     'searching': true,
+    //     //     'ordering': true,
+    //     //     'info': true,
+    //     //     'autoWidth': false
+    //     // });
+
+    //     $("#add_err").css('display', 'none', 'important');
+    //     if ($('#intended_domain').val() !== '') {
+    //         $('#existing-website').hide();
+    //         $('#new-website').show();
+    //         $("input[name=has-website][value='new']").prop("checked", true);
+    //     }
+    //     $('[data-toggle="tooltip"]').tooltip();
+    // });
+
+    // Logout
+    $("#login-form").submit(function (event) {
+        event.preventDefault();
+
+        console.log('Login');
+        const username = $("#username").val();
+        const password = $("#password").val();
+        const defa_controller = $("#defa_controller").val();
+        const defa_action = $("#defa_action").val();
+        //const error_container = $("#add_err").val();
+
+        if (username == "" || password == "") {
+            showError('Please insert the Username and Password');
+            return;
         }
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-    // Login
-    $("#btn-login").click(function () {
-        username = $("#username").val();
-        password = $("#password").val();
-        defa_controller = $("#defa_controller").val();
-        defa_action = $("#defa_action").val();
-        // alert('entra btn login' + username + " -- " + password + " -- " + defa_controller + " -- " + defa_action);
+
+        console.log('Sends the form');
+        console.log('entra btn login' + username + " -- " + password + " -- " + defa_controller + " -- " + defa_action);
+
+
         $.ajax({
             type: "POST",
             url: "/user/auth",
@@ -40,22 +62,20 @@ $(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 if (data === 'true') {
-                    $("#add_err").html("");
+                    clearError();
                     window.location = "/" + defa_controller + "/" + defa_action;
                 } else {
-                    $("#add_err").css('display', 'inline', 'important');
-                    $("#add_err").css('color', 'red', 'important');
-                    $("#add_err").html("Wrong username or password");
-                    $("#preloader").html("");
+                    showError("Wrong username or password");
+                    //$("#preloader").html("");
                 }
             },
             beforeSend: function () {
-                $("#add_err").css('display', 'none', 'important');
-                $("#preloader").html("<i class='fa fa-spinner fa-spin'>");
+                clearError();
+                // $("#preloader").html("<i class='fa fa-spinner fa-spin'>");
             },
         });
-        return false;
     });
+
     // Logout
     $("#btn-logout").click(function () {
         $.ajax({
@@ -410,7 +430,6 @@ $(document).ready(function () {
             $('#modal-add-client').modal('show');
         }
     });
-
     //proposal-template-stage-btn
     $('#btn-proposal-template-stage').click(function () {
         var proposal_name = $('#proposal-name').val();
@@ -445,7 +464,6 @@ $(document).ready(function () {
             $('#proposal-name').focus();
         }
     });
-
     // Select template stage: Shows a checkmark next to the selected template
     $('.thumbnail-protemplate').click(function () {
         var thumbnail_id = $(this).attr("id");
@@ -453,7 +471,6 @@ $(document).ready(function () {
         $('#protemplate-id-' + thumbnail_id).append(' <i id="thumb-check" class="fa fa-check bg-teal-active color-palette round-border"></i>');
         $('#template-id').val(thumbnail_id);
     });
-
     //proposal-offer-stage-btn
     $('#btn-proposal-offer-stage').click(function () {
         if ($('#template-id').val() != '') {
@@ -484,7 +501,6 @@ $(document).ready(function () {
             $('#choose-template-error-msg').css('color', '#f0523d');
         }
     });
-
     //load proposal costs breakdown
     $('#select-product-breakdown').on('change', function () {
         $('#proposal-initial-invoice').val(($(this).find(':selected').attr('data-price') * 60) / 100);
@@ -495,7 +511,6 @@ $(document).ready(function () {
         $('#proposal-subtotal-final-invoice').val($('#proposal-final-invoice').val() * $('#proposal-qty-final-invoice').val());
         $('#proposal-total-cost').val($(this).find(':selected').attr('data-price'));
     });
-
     //proposal-preview-stage-btn
     $('#btn-proposal-preview-stage').click(function () {
         //alert($('#proposal-name').val());
@@ -527,21 +542,17 @@ $(document).ready(function () {
         }
     });
 
-
     $('#send-proposal-to, #send-proposal-from, #send-proposal-subject, #editor1').blur(function () {
-
         $("#preview-send-proposal-to").html($('#send-proposal-to').val());
         $("#preview-send-proposal-from").html($('#send-proposal-from').val());
         $("#preview-send-proposal-subject").html($('#send-proposal-subject').val());
         //$("#preview-send-proposal-message").html($('#editor1').val());
     });
-
     //save and send new proposal
     $('#btn-proposal-send-stage').on('click', function () {
         alert("Sent...");
     });
-
-    /* Save New Post */
+    /* Save Post */
     $('#btn-save-post').click(function () {
         var title = $('#post-title').val();
         var content = CKEDITOR.instances['post-content'].getData();
@@ -565,16 +576,25 @@ $(document).ready(function () {
                             window.location = "/post/edit/" + post.last_id
                         }
                         else {
-                            $('#alert-dismiss').removeClass("hidden");
+                            const myAlert = document.querySelector('#alertToast');
+
+                            const bsAlert = new bootstrap.Toast(myAlert);//inizialize it
+
+                            bsAlert.show();//show it
+
+                            const myAlertMsg = $('#toast-body');
+                            myAlertMsg.html("Post Saved Successfully");
+
+                            $('#alert-dismiss').removeClass("d-none");
                             $('#alert-dismiss').css('display', 'inline', 'important');
                             window.setTimeout(function () {
                                 $("#alert-dismiss").fadeTo(500, 0).slideUp(500, function () {
-                                    $(this).css('visibility', 'hidden', 'important');
+                                    $(this).css('visibility', 'd-none', 'important');
                                 });
                             }, 4000);
                             window.setTimeout(function () {
                                 $("#alert-dismiss").removeAttr('style');
-                                $("#alert-dismiss").addClass('hidden');
+                                $("#alert-dismiss").addClass('d-none');
                             }, 6000);
                             $("#preloader").html("");
                         }
@@ -592,7 +612,63 @@ $(document).ready(function () {
             $('#post-title').focus();
         }
     });
+    /* Save Page */
+    $('#btn-save-page').click(function () {
+        var title = $('#page-title').val();
+        var content = CKEDITOR.instances['page-content'].getData();
+        // var content = $('#page-content').val();
+        var id = $('#page-id').val();
+        var url = (id === '') ? "/page/add" : "/page/update";
+        console.log('[CONTENT]', content, '[TYPE OF ID]', typeof id, '[url]', url);
+        // alert(url);
 
+        if (title != '') {
+            $.ajax({
+                type: "POST",
+                url: url,
+                dataType: "json",
+                data: "title=" + title + '&content=' + encodeURIComponent(content) + '&id=' + id,
+                success: function (data) {
+                    console.log('returnedData', data);
+                    var post = jQuery.parseJSON(data);
+                    if (post.result === 'true') {
+                        if (id === '') {
+                            window.location = "/page/edit/" + post.last_id
+                        }
+                        else {
+                            const myAlert = document.querySelector('#alertToast');
+                            const bsAlert = new bootstrap.Toast(myAlert);//inizialize it
+                            bsAlert.show();//show it
+                            const myAlertMsg = $('#toast-body');
+                            myAlertMsg.html("Page Saved Successfully");
+
+                            // $('#alert-dismiss').removeClass("d-none");
+                            // $('#alert-dismiss').css('display', 'inline', 'important');
+                            // window.setTimeout(function () {
+                            //     $("#alert-dismiss").fadeTo(500, 0).slideUp(500, function () {
+                            //         $(this).css('visibility', 'd-none', 'important');
+                            //     });
+                            // }, 4000);
+                            // window.setTimeout(function () {
+                            //     $("#alert-dismiss").removeAttr('style');
+                            //     $("#alert-dismiss").addClass('d-none');
+                            // }, 6000);
+                            // $("#preloader").html("");
+                        }
+                    }
+                },
+                beforeSend: function () {
+                    $("#preloader").html("<i class='fa fa-spinner fa-spin'>");
+                }
+            });
+        }
+        else {
+            $('#page-title').attr('data-toggle', 'tooltip');
+            $('#page-title').attr('title', 'Please insert a Title');
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#page-title').focus();
+        }
+    });
     /* Save New Product */
     $('#btn-product-save').click(function () {
         var name = $('#product-name').val();
@@ -666,6 +742,83 @@ $(document).ready(function () {
             $('#product-name').focus();
         }
     });
+
+    $('#form-update-img').submit(function (e) {
+        e.preventDefault();
+
+        var pic = $("#entity_image").prop('files')[0];
+        var post_id = $("#post_id").val();
+        var data = new FormData();
+        data.append('pic', pic);
+        data.append('id', post_id);
+
+        console.log('[DATA]', data);
+
+        $.ajax({
+            // url: "/post/upload_image",
+            // type: "POST",
+            // data: new FormData(this),
+            // contentType: false, // Not to set any content header
+            // processData: false, // Not to process data
+            // cache: false,
+            // success: function (data) {
+            //     if (data == 'invalid') {
+            //         // invalid file format.
+            //         $("#err").html("Invalid File !").fadeIn();
+            //     } else {
+            //         console.log('view uploaded file');
+            //         // view uploaded file.
+            //         // $("#preview").html(data).fadeIn();
+            //         // $("#form")[0].reset(); 
+            //     }
+            // },
+            // error: function (xhr, status, error) {
+            //     alert(status);
+            // }
+
+            url: '/post/upload_image',
+            type: "POST",
+            data: data,
+
+            cache: false,
+            contentType: false,
+            processData: false, // Not to process data
+            dataType: false,
+            success: function (data) {
+                console.log(data);
+                $('#post_image').attr('src', data);
+            },
+            error: function (e) {
+                alert("error while trying to add or update user!");
+            }
+
+        });
+
+        $.ajax({
+            // url: "/post/upload_image",
+            // type: "POST",
+            // data: new FormData(this),
+            // contentType: false, // Not to set any content header
+            // processData: false, // Not to process data
+            // cache: false,
+            // success: function (data) {
+            //     if (data == 'invalid') {
+            //         // invalid file format.
+            //         $("#err").html("Invalid File !").fadeIn();
+            //     } else {
+            //         console.log('view uploaded file');
+            //         // view uploaded file.
+            //         // $("#preview").html(data).fadeIn();
+            //         // $("#form")[0].reset(); 
+            //     }
+            // },
+            // error: function (xhr, status, error) {
+            //     alert(status);
+            // }
+        });
+
+        console.log('Updating Image', this);
+    })
 
     /*$('#active_toggle_switch').click(function(){
        if($(this).is(':checked'))
@@ -892,10 +1045,10 @@ $(document).ready(function () {
         }
     });
 
-    $('main').click(() => {
-        if (toggleMenu) {
-            toggleMenu = false;
-            $("header").css('display', 'none', 'important');
-        }
-    })
+    // $('main').click(() => {
+    //     if (toggleMenu) {
+    //         toggleMenu = false;
+    //         $("header").css('display', 'none', 'important');
+    //     }
+    // })
 });

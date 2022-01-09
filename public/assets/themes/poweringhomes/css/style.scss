@@ -219,10 +219,25 @@ body {
       color: #ffdc12;
     }
   }
+
+  .dropdown-item{
+    &.active, &.dropdown-item:active {
+      // color: #fff;
+      // text-decoration: none;
+      background-color: none !important;
+  }
+  }
   
   // UTILITIES
   .clear-fixed-top{
     padding-top: 96px !important;
+  }
+
+  // FRAMEWORK
+  .post{
+    &__page{
+      min-height: 60vh;
+    }
   }
 
   // Site Sections

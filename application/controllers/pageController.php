@@ -41,7 +41,7 @@ class PageController extends Controller {
 
     function update_hero(){
         // $this->doNotRenderHTML = 1;
-        // $option = isset($_POST['option']) ? $_POST['option'] : 'restricted' ;
+        // $option = isset($_PAGE['option']) ? $_PAGE['option'] : 'restricted' ;
         // $result = $this->Page->query('SELECT term_taxonomy.title, term_taxonomy.description
         //                                 FROM term_taxonomy WHERE term_taxonomy.id = ' . $option);
         // $heading = array_shift($result);
@@ -54,15 +54,28 @@ class PageController extends Controller {
     }
 
     function new(){
-
+        $this->set('page_header', 'Add New Page');
     }
 
-    function viewall() {
-
+    function list() {
+        // $this->doNotRenderContentHeader = 1;
+        $this->doNotRenderFooter = 1;
+        $this->set('renderContentInline', 1);
+        $this->set('page_header', 'Pages');
+        $this->set('page_description', 'Pages');
+        $this->set('pages',$this->Page->selectAll());
     }
      
     function add() {
-
+        $this->doNotRenderHTML = 1;
+        $content = $_POST['content'];
+        $content = html_entity_decode($content);
+        $content = addslashes($content);
+        $values  = '"'.$_POST['title'].'", "'.$content.'"';
+        $result  = ( $this->Page->query('INSERT INTO page (title, content) VALUES ('.$values.')', 1) == true ) 
+                   ? '{"result":"true", "last_id" : "' . $this->Page->getLastInsertID() . '" }' : '{"result":"false"}' ;
+        //echo $content;
+        echo json_encode($result);
     }
      
     function delete() {
@@ -70,11 +83,23 @@ class PageController extends Controller {
     }
 
     function edit($id = null) {
-
+        $this->doNotRenderFooter = 1;
+        $this->Page->id = $id;
+        $this->set('page_header','Edit Page');
+        $page = @array_shift($this->Page->select($this->Page->id));
+        $this->set('page', $page);
     }
 
     function update($id = null) {
-
+        $this->doNotRenderHTML = 1;
+        //$values = ' title = "'.$_POST['title'].'", content = "'.$_POST['content'].'"';
+        $content = $_POST['content'];
+        $content = html_entity_decode($content);
+        $content = addslashes($content);
+        $values = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
+        $result = ($this->Page->query('UPDATE page SET '.$values.' WHERE id = "'.$_POST['id'].'"', 1) == true ) ? '{"result":"true"}' : '{"result":"false"}' ;
+        //echo('UPDATE post SET '.$values.' WHERE id = "'.$_POST['id'].'"');
+        echo json_encode($result);
     }
 
     function getNumPages(){

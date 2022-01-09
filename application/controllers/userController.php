@@ -4,7 +4,7 @@
 class UserController extends Controller {
     
     function beforeAction () {
-        $this->actionScope = 'public';
+        //$this->actionScope = 'public';
         //$this->setLayout('frontend');
         $this->setTheme('poweringhomes');
         $this->set('user_img','/img/user/default.jpg');
@@ -151,7 +151,7 @@ class UserController extends Controller {
     }
 
     function dashboard(){
-        $this->set('page_header', 'Dashboard 1');
+        $this->set('page_header', 'Dashboard');
         $this->doNotRenderFooter = 1;
         // $this->set('renderContentInline', 1);
         

@@ -13,9 +13,10 @@ $routing = array(
     '/areas-served/' => 'page/areas_served',
     '/faqs/' => 'page/faqs',
     '/blog/' => 'post/all',
+    // '/(.*)/' => 'post/view/\1_',
     // More Examples
     //'/admin\/(.*?)\/(.*?)\/(.*)/' => 'admin/\1_\2/\3',
-    //'/(.*)/' => 'page/\1_',
+    
     //'/items/' => 'items/view/2',
     // '/signup/' => 'user/signup',
     //'\/' => 'page',

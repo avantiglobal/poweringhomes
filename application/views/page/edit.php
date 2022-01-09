@@ -24,13 +24,13 @@
 			<h2><?php echo $page_header ?></h2>
 			</div>
 			<div class="col-auto">
-				<a class="btn btn-default" href="/post/view/<?php echo $post['id'] ?>" title="View" target="_blank"><i class="bi bi-eye"></i> View Post</a>
-				<a class="btn btn-default" href="/post/list" title="Back"><i class="bi bi-arrow-left"></i> Cancel</a>
+				<a class="btn btn-default" href="/page/view/<?php echo $page['id'] ?>" title="View" target="_blank"><i class="bi bi-eye"></i> View Page</a>
+				<a class="btn btn-default" href="/page/list" title="Back"><i class="bi bi-arrow-left"></i> Cancel</a>
 			</div>
 		</div>
 	</div>
 
-	<section class="post post__new">
+	<section class="page page__new">
 		<div class="container">	
 			<div class="content">
 			<!-- Editor  -->
@@ -38,16 +38,16 @@
 				<div class="col-md-9">
 					<div class="row pad-10-bottom">
 						<div class="col-sm-12">
-							<input type="text" class="form-control input-lg" id="post-title" placeholder="Title" required value="<?php echo $post['title'] ?>" autofocus="" data-placement="bottom" autofocus>
+							<input type="text" class="form-control input-lg" id="page-title" placeholder="Title" required value="<?php echo $page['title'] ?>" autofocus="" data-placement="bottom" autofocus>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<textarea name="post-content" id="post-content">
-								<?php echo $post['content'] ?>
+							<textarea name="page-content" id="page-content">
+								<?php echo $page['content'] ?>
 							</textarea>
 							<script>
-									CKEDITOR.replace( 'post-content');
+									CKEDITOR.replace( 'page-content',);
 									// CKEDITOR.config.extraPlugins: 'simage'  //to enable to plugin
 									// CKEDITOR.config.imageUploadURL: "/img/"	 ?>
 									// CKEDITOR.config.dataParser: func(data)
@@ -56,29 +56,13 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="card card-solid bg-dark-gray color-white">
+					<div class="card bg-light color-white">
 						<!-- <div class="card-header"><i class="fa fa-gear"></i> <h4 class="card-title">Options</h4></div> -->
 						<div class="card-body">
-							<div class="row">
-								<div class="col-12">
-									<form method="post" id="form-update-img" enctype="multipart/form-data">
-										<div>
-											<img src="<?php echo $post['post_image'] ?>" alt="" id="post_image" style="width:100%; height:100%;">
-										</div>
-										<div>
-											<label for="file">Choose file to upload</label>
-											
-											<input type="file" id="entity_image" name="entity_image" accept="image/*"  />
-										</div>
-										
-										<button id="btn-update-img">Update Image</button>
-										<input type="hidden" id="post_id" value="<?php echo $post['id'] ?>">
-									</form>
-								</div>
-							</div>
+							
 							<div class="row">
 								<div class="col-sm-12 text-left">
-									<a class="btn btn-primary d-block" id="btn-save-post"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
+									<a class="btn btn-primary d-block" id="btn-save-page"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
 								</div>
 							</div>
 							<div class="row mt-3 text-center">
@@ -95,7 +79,7 @@
 
 					</div>
 				</div>
-				<input type="hidden" id="post-id" value="<?php echo $post['id'] ?>">
+				<input type="hidden" id="page-id" value="<?php echo $page['id'] ?>">
 			</div>
 			</div>
 		</div>

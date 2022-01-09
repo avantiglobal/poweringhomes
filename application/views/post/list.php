@@ -1,13 +1,14 @@
 <!-- Header Template -->
 <?php include_once(TEMPLATE_PATH . '/partial/_top_menu.php')  ?>
-<main class="flex-margin">
-	<div class="row content-header bg-light">
-		<div class="col-auto mr-auto content-header__title">
-		<h1><?php echo $page_header ?></h1>
-		</div>
-		<div class="col-auto">
-			<a class="btn btn-default btn-lg" href="/post/new" title="Add new"><i class="bi bi-plus-lg"></i><i id="preloader"></i></a>
-			<a class="btn btn-primary btn-lg" href="/user/dashboard" title="Back"><i class="bi bi-arrow-left"></i></a>
+<main class="flex-margin1">
+	<div class="container">
+		<div class="row content-header bg-white mt-2 py-2">
+			<div class="col-auto me-auto content-header__title">
+			<h2><?php echo $page_header ?></h2>
+			</div>
+			<div class="col-auto">
+				<a class="btn btn-default" href="/post/new" title="Add new"><i class="bi bi-plus-lg"></i><i id="preloader"></i> Add</a>
+			</div>
 		</div>
 	</div>	
 	<section class="post post__list">

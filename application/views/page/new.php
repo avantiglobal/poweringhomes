@@ -10,11 +10,11 @@
 			<h2><?php echo $page_header ?></h2>
 			</div>
 			<div class="col-auto">
-				<!-- <a class="btn btn-default" href="/post/new" title="Add new"><i class="bi bi-plus-lg"></i><i id="preloader"></i> Add</a> -->
+				<!-- <a class="btn btn-default" href="/page/new" title="Add new"><i class="bi bi-plus-lg"></i><i id="preloader"></i> Add</a> -->
 			</div>
 		</div>
 	</div>
-	<section class="post post__new">
+	<section class="page page__new">
 		<div class="container">	
 			<div class="content">
 			<!-- Editor  -->
@@ -22,19 +22,19 @@
 				<div class="col-md-9">
 					<div class="row pad-10-bottom">
 						<div class="col-sm-12">
-							<input type="text" class="form-control input-lg" id="post-title" placeholder="Title" required value="" autofocus="" data-placement="bottom" autofocus>
+							<input type="text" class="form-control input-lg" id="page-title" placeholder="Title" required value="" autofocus="" data-placement="bottom" autofocus>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<!-- <div class="summernote"> </div> -->
-							<!-- <form method="post">
-								<textarea id="post_content">Hello, World!</textarea>
+							<!-- <form method="page">
+								<textarea id="page_content">Hello, World!</textarea>
 							</form> -->
 
-							<textarea name="post-content" id="post-content"></textarea>
+							<textarea name="page-content" id="page-content"></textarea>
 							<script>
-									CKEDITOR.replace( 'post-content' );
+									CKEDITOR.replace( 'page-content' );
 							</script>
 						</div>
 					</div>
@@ -46,7 +46,7 @@
 							
 							<div class="row">
 								<div class="col-sm-12 text-left">
-									<a class="btn btn-primary btn-block" id="btn-save-post"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
+									<a class="btn btn-primary btn-block" id="btn-save-page"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
 								</div>
 							</div>
 							<div class="row mt-3">
@@ -63,7 +63,7 @@
 
 					</div>
 				</div>
-				<input type="hidden" id="post-id" value="">
+				<input type="hidden" id="page-id" value="">
 			</div>
 			</div>
 		</div>
