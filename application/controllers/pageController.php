@@ -9,9 +9,13 @@ class PageController extends Controller {
  
     function home(){
         $this->actionScope = 'public';
+        $Blog              = $this->loadController('Post');
+        $blog_feed         = $Blog->Post->query("SELECT post.id, post.title, post_image, post.updated_on, category.name AS category_name FROM post RIGHT JOIN category ON post.category = category.id ORDER BY post.updated_on DESC LIMIT 0,3");
+        $this->set('blog_feed', $blog_feed);
     } 
 
     function compare(){
+        // $this->actionScope = 'public';
         $this->set('renderContentInline', 1);
         $this->set('text', 'this is a test');
     }

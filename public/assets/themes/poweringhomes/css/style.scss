@@ -225,7 +225,37 @@ body {
       // color: #fff;
       // text-decoration: none;
       background-color: none !important;
+    }
   }
+
+  .card{
+    position: relative;
+    &-cover{
+      background-size:cover; 
+      background-position:center center; 
+      // filter: brightness(1.3) invert(0.17) sepia(0.25) saturate(1.6) url('#sea');
+      text-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+    }
+    &-overlay{
+      position: absolute;
+      background-color: $secondary;
+      opacity: .5;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index: 1;
+      transition:0.2s;
+    }
+    &:hover &-overlay{
+      filter: grayscale(.5);
+      opacity: .85;
+    }
+    a{
+      h1,h2,h3,h4,h5,h6{
+        color: white;
+      }
+    }
   }
   
   // UTILITIES
@@ -235,6 +265,12 @@ body {
 
   .cursor-pointer{
     cursor: pointer;
+  }
+
+  .zi{
+    &-2{
+      z-index: 2;
+    }
   }
 
   // FRAMEWORK
@@ -302,7 +338,7 @@ body {
       content: "";
       position: absolute;
       // background-color: rgba($color: #000000, $alpha: .55);
-      background-image: linear-gradient(rgba(3, 72, 151, 0.8), rgba(4,66,114,0.8));
+      background-image: linear-gradient(rgba(3, 72, 151, 0.8), rgba(4,66,114,0.85));
       top:0;
       left:0;
       width:100%;

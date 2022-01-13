@@ -14,6 +14,11 @@ class Model extends SQLQuery {
         $this->_model = get_class($this);
         $this->_table = strtolower($this->_model);//."s";
     }
+
+    function selectLast($nRecords, $where = "") {
+        $query = "SELECT * FROM ".$this->_table." ". $where ." ORDER BY id DESC LIMIT 0," . $nRecords;
+        return $this->query($query);
+    }
  
     function __destruct() {
     }
