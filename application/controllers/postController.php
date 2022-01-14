@@ -45,7 +45,7 @@ class PostController extends Controller {
 
     function all($args) {
         $cWhere = empty($args[0]) ? '' : ' AND category.name = "' . str_replace('-',' ',strtolower($args[0])) . '"' ;
-        
+
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');
@@ -78,16 +78,16 @@ class PostController extends Controller {
         echo ($this->Post->query('DELETE FROM post WHERE id = \''.$_POST['id'].'\'', 1)) ? 'true' : 'false';
     }
 
-    function edit($id = null) {
+    function edit($args) {
         $this->doNotRenderFooter = 1;
         $this->set('renderContentInline', 1);
-        $this->Post->id = $id;
+        $this->Post->id = $args[0];
         $this->set('page_header','Edit Post');
         $post = @array_shift($this->Post->select($this->Post->id));
         $this->set('post', $post);
     }
 
-    function update($id = null) {
+    function update($args) {
         $this->doNotRenderHTML = 1;
         //$values = ' title = "'.$_POST['title'].'", content = "'.$_POST['content'].'"';
         $content = $_POST['content'];
