@@ -30,5 +30,9 @@
         </div>
       <?php } ?>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-12 text-center pt-4">
+        <a href="/blog">View All</a>
+      </div>
+    </div>
 </div>

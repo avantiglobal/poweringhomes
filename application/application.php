@@ -59,9 +59,9 @@ class Application{
         $dispatch       = new $controllerName($model, $controller, $action);
     	
     	if ((int)method_exists($controllerName, $action)) {
-            call_user_func_array(array($dispatch,"beforeAction"),$queryString);
-            call_user_func_array(array($dispatch,$action),$queryString);
-            call_user_func_array(array($dispatch,"afterAction"),$queryString);
+            call_user_func_array(array($dispatch,"beforeAction"),array($queryString));
+            call_user_func_array(array($dispatch,$action),  array($queryString));
+            call_user_func_array(array($dispatch,"afterAction"), array($queryString));
     	} else {
             /* Error Generation Code Here */
             if (file_exists(PUBLIC_PATH . '/assets/themes/404.php')) {

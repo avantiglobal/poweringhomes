@@ -7,7 +7,7 @@ class UserController extends Controller {
         //$this->actionScope = 'public';
         //$this->setLayout('frontend');
         $this->setTheme('poweringhomes');
-        $this->set('user_img','/img/user/default.jpg');
+        //$this->set('user_img','/img/user/default.jpg');
         // $this->set('user_name', 'John Doe');
         //$this->set('sidebar_menu', '      ');
     }

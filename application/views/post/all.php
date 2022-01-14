@@ -21,9 +21,9 @@
 													</div>
 													<div class="col-md-8">
 														<div class="card-body">
-															<a href="/post/view/<?php echo $post['id']?>" class="stretched-link"><h5 class="card-title"><?php echo $post['title'] ?></h5></a>
+															<a href="/post/view/<?php echo $post['id']?>" class="stretched-link"><h5 class="card-title text-primary"><?php echo $post['title'] ?></h5></a>
 															<p class="card-text"><?php echo $post['summary'] ?></p>
-															<p class="card-text"><small class="text-muted">Last updated <?php echo timeAgo($post['updated_on']) ?></small></p>
+															<p class="card-text"><small class="text-muted"><?php echo timeAgo($post['updated_on']) ?></small></p>
 														</div>
 													</div>
 												</div>
@@ -35,7 +35,13 @@
 						</div>
 					</div>
 					<div class="col-12 col-md-4">
-						Right Content
+						<h4>Browse Content</h4>
+						<ul>
+							<li><a href="/blog">All</a></li>
+						<?php foreach ($categories as $key => $category) {
+							echo '<li><a href="/blog/' . str_replace(' ','-',strtolower($category["category_name"]))  . '" >' . $category["category_name"] . '</a></li>';
+						} ?>
+						</ul>
 					</div>
 				</div>
 			</div>

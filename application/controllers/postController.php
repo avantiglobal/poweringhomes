@@ -24,13 +24,10 @@ class PostController extends Controller {
         $this->set('page_description', 'Add a New Post');
     }
     
-    function view($id = null,$name = null) {
+    function view($args) {
         $this->actionScope = 'public';
-        // $this->setLayout('frontend');
-        //$this->set('doNotRenderContentHeader', 1);
         $this->set('renderContentInline', 1);
-        $this->Post->id = $id;
-        //$this->set('page_header','Edit Post');
+        $this->Post->id = $args[0];
         $post = @array_shift($this->Post->select($this->Post->id));
         // print_r($post);
         $this->set('post_content', $post['content']);
@@ -46,15 +43,22 @@ class PostController extends Controller {
         $this->set('todo',$this->Post->selectAll());
     }
 
-    function all() {
-        // $this->doNotRenderContentHeader = 1;
-        //$this->set('renderContentInline', 1);
-        $this->doNotRenderFooter = 1;
+    function all($args) {
+        $cWhere = empty($args[0]) ? '' : ' AND category.name = "' . str_replace('-',' ',strtolower($args[0])) . '"' ;
+        
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');
         $this->set('banner_subtitle', 'Stay informed about our news and insights.');
-        $this->set('posts',$this->Post->selectAll());
+        $this->set('posts',$this->Post->query("SELECT post.id, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category
+                                                FROM post
+                                                LEFT JOIN category ON post.category = category.id
+                                                WHERE post.status = 1 " . $cWhere));
+    
+        $this->set('categories', $this->Post->query("SELECT DISTINCT category.id, category.name AS category_name 
+                                                        FROM category 
+                                                        LEFT JOIN post ON post.category = category.id 
+                                                        ORDER BY category_name DESC LIMIT 0,20"));
     }    
      
     function add() {
