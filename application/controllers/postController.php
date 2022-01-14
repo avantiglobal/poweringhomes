@@ -29,9 +29,14 @@ class PostController extends Controller {
         $this->set('renderContentInline', 1);
         $this->Post->id = $args[0];
         $post = @array_shift($this->Post->select($this->Post->id));
+
         // print_r($post);
         $this->set('post_content', $post['content']);
         $this->set('post_title', $post['title']);
+        $this->set('categories', $this->Post->query("SELECT DISTINCT category.id, category.name AS category_name 
+                                                        FROM category 
+                                                        LEFT JOIN post ON post.category = category.id 
+                                                        ORDER BY category_name DESC LIMIT 0,20"));
     }
      
     function list() {

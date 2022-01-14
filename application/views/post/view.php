@@ -10,8 +10,17 @@
           </div>
 
           <div class="row min-height-300">
-            <div class="col-md-12">
+            <div class="col-12 col-md-8">
               <?php echo $post_content ?>
+            </div>
+            <div class="col-12 col-md-4 pe-md-5">
+              <h4>Browse Content</h4>
+              <ul>
+                <li><a href="/blog">All</a></li>
+              <?php foreach ($categories as $key => $category) {
+                echo '<li><a href="/blog/' . str_replace(' ','-',strtolower($category["category_name"]))  . '" >' . $category["category_name"] . '</a></li>';
+              } ?>
+              </ul>
             </div>
           </div>
         </div>
