@@ -15,7 +15,7 @@
                 <div class="col-12 col-md-6">
                   <img src="<?php echo $post_image ?>" alt="" class="img-fluid">
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 fs-5 d-flex align-items-center">
                 <?php echo $summary ?>"
                 </div>
               </div>
