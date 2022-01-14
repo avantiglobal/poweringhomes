@@ -33,6 +33,8 @@ class PostController extends Controller {
         // print_r($post);
         $this->set('post_content', $post['content']);
         $this->set('post_title', $post['title']);
+        $this->set('post_image', $post['post_image']);
+        $this->set('summary', $post['summary']);
         $this->set('categories', $this->Post->query("SELECT DISTINCT category.id, category.name AS category_name 
                                                         FROM category 
                                                         LEFT JOIN post ON post.category = category.id 
