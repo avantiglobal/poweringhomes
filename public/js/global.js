@@ -1025,15 +1025,15 @@ $(document).ready(function () {
 
     $('#zipcode-checker-form').submit((e) => {
         e.preventDefault();
-        console.log('Sending Form');
+
         const zipcode = $('#zipcode-checker-input').val();
-        const apiURL = "http://api.test/zipcode/";
-        const data = "zip=" + zipcode;
+        const data = "?zip=" + zipcode;
+        const apiURL = $('#apiURL').val();
 
         $.ajax({
             type: "POST",
             crossDomain: true,
-            url: "http://api.test/zipcode/?zip=" + zipcode,
+            url: apiURL + data,
             success: function (data) {
                 if (data.message === 'success') {
                     if (data.data['powur_served'] == 1) {

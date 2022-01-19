@@ -6,10 +6,6 @@
                 <p class="fs-5 mb-4">Find out if your Zip Code is within our served areas.</p>
                 <form id="zipcode-checker-form">
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <!-- <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
-                        <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button> -->
-                        <!-- <input placeholder="Enter ZIP Code" class="elementor-search-form__input zipcode-form__input"  value="" maxlength="5"> -->
-                        
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" type="search" name="s" id="zipcode-checker-input" title="ZIP Code" placeholder="ZIP Code" required>
                             <label for="floatingName">ZIP Code</label>
@@ -18,13 +14,13 @@
                             <button class="btn btn-primary py-3" type="submit" title="Search" id="zipcode-checker-btn" aria-label="Search">CHECK SAVINGS</button>
                         </div>
                     </div>
+                    <input type="hidden" name="apiURL" id="apiURL" value="<?php echo (getenv('REMOTE_ADDR') == '127.0.0.1') ? Application::getConfig('development.api.url') : Application::getConfig('production.api.url') ?>">
                 </form>
             </div>
         </div>
     </div>
     
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
 <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -131,7 +127,7 @@
             <div class="row">
                 <div class="col-12">
                     <p>
-                        <small class="text-muted">By submitting this request, you authorize us to call you or text you on the phone number you provided and prerecorded calls or messages even if your number is on any federal, state, or local do not call list. Your consent to this agreement is not required to purchase products or services. We respect your privacy.</small>
+                        <small class="text-muted">By submitting this request, you authorize <b><?php echo Application::getConfig('company.name') ?></b> to call you or text you on the phone number you provided and prerecorded calls or messages even if your number is on any federal, state, or local do not call list. Your consent to this agreement is not required to purchase products or services. We respect your privacy.</small>
                     </p>
                 </div>
             </div>
