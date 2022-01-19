@@ -11,9 +11,9 @@ if (count($arrField) > 0 && $arrField[1] != "" ){
     $zipcode_data = $oSql->select($arrField[1], $arrField[0]);
     //Access-Control-Allow-Origin header with wildcard.
     header('Access-Control-Allow-Origin: *');
-    //header('Access-Control-Allow-Origin: http://api.test/', false);
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($zipcode_data);
+    $result = array("message" => count($zipcode_data) > 0 ? "success" : "no results",  "data" => $zipcode_data);
+    echo json_encode($result);
 }else{
     echo "API Response :: Missing Parameters. Please enter a parameter. IE: /?id=90210";
 }
