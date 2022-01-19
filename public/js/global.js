@@ -1029,7 +1029,7 @@ $(document).ready(function () {
         const zipcode = $('#zipcode-checker-input').val();
         const data = "?zip=" + zipcode;
         const apiURL = $('#apiURL').val();
-
+        console.log('apiURL + data', apiURL + data);
         $.ajax({
             type: "POST",
             crossDomain: true,
