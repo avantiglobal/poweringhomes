@@ -1023,6 +1023,36 @@ $(document).ready(function () {
         }
     });
 
+    $('#zipcode-checker-form').submit((e) => {
+        e.preventDefault();
+        console.log('Sending Form');
+        const zipcode = $('#zipcode-checker-input').val();
+        const apiURL = "http://api.test/zipcode/";
+        const data = "zip=" + zipcode;
+
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            url: "http://api.test/zipcode/?zip=" + zipcode,
+            success: function (data) {
+                if (data.message === 'success') {
+                    if (data.data['powur_served'] == 1) {
+                        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+                            keyboard: false
+                        })
+                        myModal.show();
+                    } else {
+                        alert("Sorry, " + data.data["city"] + ", " + data.data["state_id"] + ", is not within our served areas.");
+                    }
+                    clearError();
+                    //window.location = "/" + defa_controller + "/" + defa_action;
+                } else {
+                    showError("Wrong username or password");
+                }
+            }
+        });
+    });
+
     // $('main').click(() => {
     //     if (toggleMenu) {
     //         toggleMenu = false;

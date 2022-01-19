@@ -9,6 +9,10 @@ $arrField = explode("=", $_SERVER["QUERY_STRING"]);
 if (count($arrField) > 0 && $arrField[1] != "" ){
     $oSql         = new SQLQuery($db_host, $db_user, $db_password, $db_name, "zipcode");
     $zipcode_data = $oSql->select($arrField[1], $arrField[0]);
+    //Access-Control-Allow-Origin header with wildcard.
+    header('Access-Control-Allow-Origin: *');
+    //header('Access-Control-Allow-Origin: http://api.test/', false);
+    header('Content-Type: application/json; charset=utf-8');
     echo json_encode($zipcode_data);
 }else{
     echo "API Response :: Missing Parameters. Please enter a parameter. IE: /?id=90210";

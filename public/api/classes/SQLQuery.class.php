@@ -54,7 +54,6 @@ class SQLQuery {
     /** Custom SQL Query **/
     function query($sql, $singleResult = false) {
         $data  = array();
-        
         if ($this->_result = $this->_mysqli->query($sql)) {
             if ($this->_result->num_rows == 1){
                 $data = $this->_result->fetch_assoc();
@@ -66,7 +65,7 @@ class SQLQuery {
         }else{
             $data[] = "Record not found";
         }
-        $this->_result->close();
+        //$this->_result->close();
         unset($obj);
         unset($sql);
 
