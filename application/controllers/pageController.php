@@ -33,20 +33,6 @@ class PageController extends Controller {
         $this->set('page_title', $page['title']);
     }
 
-    function update_hero(){
-        // $this->doNotRenderHTML = 1;
-        // $option = isset($_PAGE['option']) ? $_PAGE['option'] : 'restricted' ;
-        // $result = $this->Page->query('SELECT term_taxonomy.title, term_taxonomy.description
-        //                                 FROM term_taxonomy WHERE term_taxonomy.id = ' . $option);
-        // $heading = array_shift($result);
-        // $result = $this->Page->query('SELECT product.slug, product.name FROM product WHERE product.category_ids = ' . $option);
-        // $heading['products'] = $result;
-        
-        // $heading = json_encode($heading);
-
-        // echo $heading;
-    }
-
     function new(){
         $this->set('page_header', 'Add New Page');
     }
@@ -122,6 +108,24 @@ class PageController extends Controller {
         $this->actionScope = 'public';
         $this->set('banner_title', 'FAQ\'s');
         $this->set('banner_subtitle', 'Do you have questions? We hope you can your answers here.');
+    }
+
+    function submit_quote(){
+        $this->actionScope = 'public';
+        $this->doNotRenderHTML = 1;
+        $values = '"'.$_POST['name'].'", "'.$_POST['lastname'].'", "'.$_POST['address'].'", "'.$_POST['unit'].'", ' .
+                    '"'.$_POST['city'].'", "'.$_POST['state'].'", "'.$_POST['zipcode'].'", "'.$_POST['phone'].'", ' .
+                    '"'.$_POST['email'].'"';
+        // $content = $_POST['content'];
+        // $content = html_entity_decode($content);
+        // $content = addslashes($content);
+        $Client  = $this->loadController('Client');
+        $result  = ($Client->Client->query('INSERT INTO client (name, lastname, address, unit, city, state, zipcode, phone, email) 
+                                            VALUES (' . $values . ')', 1) == true ) 
+                                            ? '{"result":"true"}' 
+                                            : '{"result":"false"}' ;
+        
+        echo json_encode($result);
     }
 
     function afterAction() {

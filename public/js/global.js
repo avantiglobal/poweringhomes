@@ -1068,12 +1068,43 @@ $(document).ready(function () {
         }
     });
 
-    // $('main').click(() => {
-    //     if (toggleMenu) {
-    //         toggleMenu = false;
-    //         $("header").css('display', 'none', 'important');
-    //     }
-    // })
+    $('#quote-form').submit((e) => {
+
+        e.preventDefault();
+        const formElements = e.target.elements;
+        let queryParams = "";
+        for (var i = 0, element; element = formElements[i++];) {
+            if (element.type !== "button" && element.value !== "") {
+                const connector = i == 0 ? "" : "&";
+                queryParams += connector + element.name + "=" + element.value;
+            }
+        }
+
+        console.log("queryParams", queryParams);
+
+        $.ajax({
+            url: '/page/submit_quote',
+            type: "POST",
+            data: queryParams,
+            dataType: "json",
+            success: function (data) {
+                console.log('data: ' + data);
+                var client = jQuery.parseJSON(data);
+                if (client.result === "true") {
+                    $('#quote-form-fields').addClass('d-none');
+                    $('#quote-thankyou').removeClass('d-none');
+                    $('#btn-quote-form').addClass('d-none');
+                }
+            },
+            error: function (e) {
+                alert("Error while trying to save the quote!");
+            }
+        });
+
+        // Show Thank you message
+        //$('#btn-update-img').addClass('d-none');
+
+    });
 });
 
 function isNumeric(str) {
