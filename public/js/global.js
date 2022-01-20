@@ -1029,7 +1029,13 @@ $(document).ready(function () {
         const zipcode = $('#zipcode-checker-input').val();
         const data = "?zip=" + zipcode;
         const apiURL = $('#apiURL').val();
-        console.log('apiURL + data', apiURL + data);
+
+        if (!isNumeric(zipcode)) {
+            $('#zipcode-form-error').removeClass('d-none');
+            $('#zipcode-form-error').html("ZIP Code must be a numeric value");
+            return;
+        }
+
         $.ajax({
             type: "POST",
             crossDomain: true,
@@ -1047,10 +1053,19 @@ $(document).ready(function () {
                     clearError();
                     //window.location = "/" + defa_controller + "/" + defa_action;
                 } else {
-                    showError("Wrong username or password");
+                    console.log('apiURL + data', apiURL + data);
+                    $('#zipcode-form-error').removeClass('d-none');
+                    $('#zipcode-form-error').html("Invalid ZIP Code");
                 }
             }
         });
+    });
+
+    $('#zipcode-checker-input').keyup(() => {
+        const zipcode = $('#zipcode-checker-input').val();
+        if (zipcode.length == 0) {
+            $('#zipcode-form-error').addClass('d-none');
+        }
     });
 
     // $('main').click(() => {
@@ -1060,3 +1075,9 @@ $(document).ready(function () {
     //     }
     // })
 });
+
+function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+        !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}

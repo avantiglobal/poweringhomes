@@ -7,13 +7,14 @@
                 <form id="zipcode-checker-form">
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" type="search" name="s" id="zipcode-checker-input" title="ZIP Code" placeholder="ZIP Code" required>
+                            <input type="text" class="form-control" type="search" name="s" id="zipcode-checker-input" title="ZIP Code" placeholder="ZIP Code" required maxlength="5">
                             <label for="floatingName">ZIP Code</label>
                         </div>
                         <div class="form-floating mb-3">
                             <button class="btn btn-primary py-3" type="submit" title="Search" id="zipcode-checker-btn" aria-label="Search">CHECK SAVINGS</button>
                         </div>
                     </div>
+                    <div class="alert-danger d-none p-3" id="zipcode-form-error">&nbsp;</div>
                     <input type="hidden" name="apiURL" id="apiURL" value="<?php echo (getenv('REMOTE_ADDR') == '127.0.0.1') ? Application::getConfig('development.api.url') : Application::getConfig('production.api.url') ?>">
                 </form>
             </div>
