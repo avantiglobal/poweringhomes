@@ -157,8 +157,8 @@ class UserController extends Controller {
         
         // $this->User->selectAll();
         // $this->set('num_users',$this->User->getNumRows());
-        // $Client = $this->loadController('Client');
-        // $this->set('num_clients',$Client->Client->numRows());
+        $Client = $this->loadController('Client');
+        $this->set('quotes',$Client->Client->getQuoteRequests(5));
         $Message = $this->loadController('Message');
         $this->set('messages_total',$Message->Message->numRows());
         // $Proposal = $this->loadController('Proposal');

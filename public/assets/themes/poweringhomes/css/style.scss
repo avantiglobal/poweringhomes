@@ -280,6 +280,15 @@ body {
     }
   }
 
+  .bi{
+    &-2x{
+      font-size: 2rem;
+    }
+    &-3x{
+      font-size: 3rem;
+    }
+  }
+
   // FRAMEWORK
   .post{
     &__page{

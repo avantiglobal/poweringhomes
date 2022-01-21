@@ -283,6 +283,14 @@ body {
   z-index: 2;
 }
 
+.bi-2x {
+  font-size: 2rem;
+}
+
+.bi-3x {
+  font-size: 3rem;
+}
+
 .post__page {
   min-height: 60vh;
 }
