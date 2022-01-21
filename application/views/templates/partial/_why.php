@@ -5,8 +5,8 @@
   <div class="why__overlay">&nbsp;</div>
   <div class="container why__content-wrapper px-4">
       <div class="text-center">
-        <h3 class="display-6 fw-bold pb-md-2">Why Powering Homes?</h3>
-        <h4 class="fw-light mb-md-5">It's a simple process that only requires your utility bill to get started.</h4>
+        <h3 class="display-6 fw-bold pb-md-4">Why Powering Homes?</h3>
+        <!-- <h4 class="fw-light mb-md-5">It's a simple process that only requires your utility bill to get started.</h4> -->
       </div>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
