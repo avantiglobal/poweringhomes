@@ -47,9 +47,19 @@ body {
   border-color: #054d80;
 }
 
+.btn-primary--130 {
+  min-width: 130px;
+}
+
 .btn-secondary {
   background-color: #054d80;
   border-color: #054d80;
+}
+
+.nav-link {
+  padding: .5rem 1rem !important;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .carousel {

@@ -1023,13 +1023,13 @@ $(document).ready(function () {
         }
     });
 
-    $('#zipcode-checker-form').submit((e) => {
+    $('.zipcode-checker-form').submit((e) => {
         e.preventDefault();
 
-        const zipcode = $('#zipcode-checker-input').val();
+        const zipcode = ($('#zipcode-checker-input').val() == "" || $('#zipcode-checker-input').val() == undefined) ? $('#zipcode-checker-input2').val() : $('#zipcode-checker-input').val();
         const data = "?zip=" + zipcode;
         const apiURL = $('#apiURL').val();
-
+        console.log('apiURL', apiURL + data);
         if (!isNumeric(zipcode)) {
             $('#zipcode-form-error').removeClass('d-none');
             $('#zipcode-form-error').html("ZIP Code must be a numeric value");

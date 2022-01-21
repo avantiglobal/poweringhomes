@@ -29,4 +29,6 @@
       </ul>
     </div>
   </div>
+  <!-- Modal -->
+  <?php includeTpl('/partial/_modal_quote') ?>
 </footer>

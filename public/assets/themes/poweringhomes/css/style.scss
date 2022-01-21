@@ -59,12 +59,20 @@ body {
       background-color: $secondary;
       border-color: $secondary;
     }
+    &--130{
+      min-width: 130px;;
+    }
   }
   .btn-secondary{
     background-color: $secondary;
     border-color: $secondary;
   }
-
+  // NAV
+  .nav-link{
+    padding: .5rem 1rem !important;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
   // CAROUSEL
   .carousel {
     margin-bottom: 4rem;
