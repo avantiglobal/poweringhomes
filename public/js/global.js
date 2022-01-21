@@ -1105,6 +1105,37 @@ $(document).ready(function () {
         //$('#btn-update-img').addClass('d-none');
 
     });
+
+    $('#post-delete').click((e) => {
+        e.preventDefault();
+        console.log('Delete Post');
+        if (confirm('Are you sure?')) {
+            const post_id = $('#post-delete').attr("data-id");
+            $.ajax({
+                type: "POST",
+                url: "/post/delete",
+                dataType: "text",
+                data: "id=" + post_id,
+                success: function (user) {
+                    //console.log(user);
+                    if (user === 'true') {
+                        window.location = '/post/list';
+                    } else {
+                        // $("#add_err").css('display', 'inline', 'important');
+                        // $("#add_err").html('Impossible to update User');
+                    }
+                },
+                beforeSend: function () {
+                    //$("#add_err").css('display', 'inline', 'important');
+                    //$("#add_err").html("<div><i class=''> Loading...</div>");
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert(err.Message);
+                }
+            });
+        }
+    });
 });
 
 function isNumeric(str) {

@@ -88,13 +88,14 @@
 								</div>
 							</div>
 							<div class="row mt-3 text-center">
-								<div class="col-sm-4">Active</div>
+								<!-- <div class="col-sm-4">Active</div>
 								<div class="col-sm-4 text-center pull-right">
 									<label class="switch">
 									<input type="checkbox" checked>
 									<span class="slider round"></span>
 									</label>
-								</div>
+								</div> -->
+								<a href="#" class="text-danger pt-3" id="post-delete" data-id="<?php echo $post['id'] ?>"><i class="bi bi-trash"></i> Delete Post</a>
 							</div>
 
 						</div>
