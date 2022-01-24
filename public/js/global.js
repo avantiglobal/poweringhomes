@@ -1069,13 +1069,12 @@ $(document).ready(function () {
     });
 
     $('#quote-form').submit((e) => {
-
         e.preventDefault();
         const formElements = e.target.elements;
         let queryParams = "";
         for (var i = 0, element; element = formElements[i++];) {
             if (element.type !== "button" && element.value !== "") {
-                const connector = i == 0 ? "" : "&";
+                const connector = i == 1 ? "" : "&";
                 queryParams += connector + element.name + "=" + element.value;
             }
         }
@@ -1100,10 +1099,6 @@ $(document).ready(function () {
                 alert("Error while trying to save the quote!");
             }
         });
-
-        // Show Thank you message
-        //$('#btn-update-img').addClass('d-none');
-
     });
 
     $('#post-delete').click((e) => {
@@ -1135,6 +1130,38 @@ $(document).ready(function () {
                 }
             });
         }
+    });
+
+    $('#form-contact').submit((e) => {
+        e.preventDefault();
+        const formElements = e.target.elements;
+        let queryParams = "";
+        for (var i = 0, element; element = formElements[i++];) {
+            if (element.type !== "button") {
+                const connector = i == 1 ? "" : "&";
+                queryParams += connector + element.name + "=" + element.value;
+            }
+        }
+
+        console.log("queryParams", queryParams);
+
+        $.ajax({
+            url: '/page/submitContactForm',
+            type: "POST",
+            data: queryParams,
+            dataType: "json",
+            success: function (data) {
+                console.log('data: ' + data);
+                var client = jQuery.parseJSON(data);
+                if (client.result === "true") {
+                    $('.contact-wrapper').addClass('d-none');
+                    $('.contact-thankyou').removeClass('d-none');
+                }
+            },
+            error: function (e) {
+                alert("Error while trying to save the message!", e);
+            }
+        });
     });
 });
 

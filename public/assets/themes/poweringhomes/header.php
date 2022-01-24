@@ -15,7 +15,7 @@
     //"Areas Served" => "/areas-served",
     "Blog" => "/blog" ,
     "FAQs" => "/faqs",
-    //"Contact" => "/contact"
+    "Contact" => "/contact"
   );
 ?>
 <!-- <header>
