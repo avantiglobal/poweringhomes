@@ -129,18 +129,16 @@ class PageController extends Controller {
     }
     function submitContactForm(){
         $this->actionScope = 'public';
-        // $this->doNotRenderHTML = 1;
+        $this->doNotRenderHTML = 1;
         
         $values   = '"'.$_POST['first_name'].'", "'.$_POST['last_name'].'", "'.$_POST['phone'].'", "'.$_POST['email'].'"';
         $Client   = $this->loadController('Client');
         // $clientID = $Client->Client->clientExists($_POST['email'], $_POST['phone']);
 
         // if ($clientID == false){
-            $result  = ($Client->Client->query('INSERT INTO client (name, lastname, phone, email) 
-                                                VALUES (' . $values . ')', 1) == true ) 
-                                                ? '{"result":"true"}' 
-                                                : '{"result":"false"}';
+            $result  = $Client->Client->query('INSERT INTO client (name, lastname, phone, email) VALUES (' . $values . ')', 1)  ;
             echo json_encode($result);
+            exit;
         // }
         // else{
         //     $result  = ($Client->Client->query('UPDATE client SET name = "'.$_POST['first_name'].'", lastname = "'.$_POST['last_name'].'" WHERE id = ' . $clientID, 1) == true ) 

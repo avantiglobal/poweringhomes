@@ -78,12 +78,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="contact-thankyou d-none">
-			<h2>Thank you!</h2>
+		<div class="contact-thankyou d-none py-5">
+			<h2 class="pb-3">Thank you!</h2>
 			<p>
 				We will look over your message and get back to you soon. 
                 In the meantime, you can check the FAQ section or browse through our latest 
-                blog posts. Please click 'Close' to continue.
+                <a href="/blog">blog posts</a>.
 			</p>
 		</div>
 	</div>

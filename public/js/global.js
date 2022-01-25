@@ -1151,15 +1151,13 @@ $(document).ready(function () {
             data: queryParams,
             dataType: "json",
             success: function (data) {
-                console.log('data: ' + data);
-                var client = jQuery.parseJSON(data);
-                if (client.result === "true") {
+                if (data === true) {
                     $('.contact-wrapper').addClass('d-none');
                     $('.contact-thankyou').removeClass('d-none');
                 }
             },
-            error: function (e) {
-                alert("Error while trying to save the message!", e);
+            error: function (xhr, status, error) {
+                console.error(xhr);
             }
         });
     });
