@@ -47,8 +47,8 @@ class UserController extends Controller {
 
     function add() {
         $this->doNotRenderHTML = 1;
-        $values = '"'.$_REQUEST['name'].'","'.$_REQUEST['lastname'].'","'.$_REQUEST['email'].'","'.$_REQUEST['phone'].'","'.
-                      $_REQUEST['address'].'","'.$_REQUEST['username'].'","'.hash('md5', $_REQUEST['password']).'"';
+        $values = '"'.$_POST['name'].'","'.$_POST['lastname'].'","'.$_POST['email'].'","'.$_POST['phone'].'","'.
+                      $_POST['address'].'","'.$_POST['username'].'","'.hash('md5', $_POST['password']).'"';
         //$values = $this->User->_link->real_escape_string($values);
         $result = ($this->User->query('INSERT INTO user (name, lastname, email, phone, address, username, password) VALUES ('.$values.')', 1) == true ) 
                   ? '{"result":"true", "last_id" : "' . $this->User->getLastInsertID() . '" }' : '{"result":"false"}' ;
@@ -57,8 +57,8 @@ class UserController extends Controller {
      
     function delete() {
         $this->doNotRenderHTML = 1;
-        echo ($this->User->query('DELETE FROM user WHERE id = \''.$_REQUEST['id'].'\'', 1)) ? 'true' : 'false';
-        //echo 'DELETE FROM user WHERE id = \''.$_REQUEST['id'].'\'';
+        echo ($this->User->query('DELETE FROM user WHERE id = \''.$_POST['id'].'\'', 1)) ? 'true' : 'false';
+        //echo 'DELETE FROM user WHERE id = \''.$_POST['id'].'\'';
     }
 
     function edit($id = null) {
@@ -71,11 +71,11 @@ class UserController extends Controller {
 
     function update() {
         $this->doNotRenderHTML = 1;
-        $values = 'name="'.$_REQUEST['name'].'",lastname="'.$_REQUEST['lastname'].'",email="'.$_REQUEST['email'].
-                  '",phone="'.$_REQUEST['phone'].'",address="'.$_REQUEST['address'].'",username="'.$_REQUEST['username'].
-                  '", password="'.hash('md5', $_REQUEST['password']).'"';
+        $values = 'name="'.$_POST['name'].'",lastname="'.$_POST['lastname'].'",email="'.$_POST['email'].
+                  '",phone="'.$_POST['phone'].'",address="'.$_POST['address'].'",username="'.$_POST['username'].
+                  '", password="'.hash('md5', $_POST['password']).'"';
         
-        $result = ($this->User->query('UPDATE user SET '.$values.' WHERE id = "'.$_REQUEST['id'].'"', 1) == true ) 
+        $result = ($this->User->query('UPDATE user SET '.$values.' WHERE id = "'.$_POST['id'].'"', 1) == true ) 
                     ? '{"result":"true"}' : '{"result":"false"}' ;
             
         echo json_encode($result);
@@ -100,7 +100,7 @@ class UserController extends Controller {
         $this->actionScope = 'public';
         $this->doNotRenderHTML = 1;
         //Validate the email
-        $emailExists  = $this->User->emailExists($_REQUEST['email']);
+        $emailExists  = $this->User->emailExists($_POST['email']);
         
         if (!$emailExists){
             $arrKeys      = array('name', 'lastname', 'email', 'password', 'recruiter', 'company', 'linkedin'); // Must name the form inputs like the field names in the table
@@ -116,20 +116,20 @@ class UserController extends Controller {
 
     function auth(){
         $this->doNotRenderHTML = 1;
-        $username = isset($_REQUEST['username']) ? $_REQUEST['username'] : '';
-        $password = hash('md5',$_REQUEST['password']);
+        $username = isset($_POST['username']) ? $_POST['username'] : '';
+        $password = hash('md5',$_POST['password']);
         $result   = ($this->User->query('SELECT * FROM user WHERE (username = "'.$username.'" OR email="'.$username.'") AND password = "'.$password.'"'));
-        
+        error_log('[LOGIN RESULT] ' .json_encode($result));
 
-        if (count($result) > 0){            
+        if (count($result) > 0){
             session_start();
-            error_log(json_encode($result));
-            $_SESSION['id'] = $result[0]['id'];
-            $_SESSION['fullname'] = $result[0]['name'] . ' ' . $result[0]['lastname'];
+            // error_log('[LOGIN RESULT] ' .json_encode($result));
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['fullname'] = $result['name'] . ' ' . $result['lastname'];
             $_SESSION['username'] = $username;
-            $_SESSION['datein'] = $result[0]['date_in'];
-            $_SESSION['email'] = $result[0]['email'];
-            $_SESSION['type'] = $result[0]['type'];
+            $_SESSION['datein'] = $result['date_in'];
+            $_SESSION['email'] = $result['email'];
+            $_SESSION['type'] = $result['type'];
             $_SESSION['side_menu'] = $this->getMenu('master');
             $_SESSION['profile_img'] = file_exists(Application::getConfig('path.public-img') . Application::getConfig('path.public-user-img') . '/' . $_SESSION["id"].'.jpg') 
                 ? '/'.Application::getConfig('path.public-img') . Application::getConfig('path.public-user-img') . '/' . $_SESSION["id"].'.jpg' 
@@ -193,16 +193,16 @@ class UserController extends Controller {
                             <p>You've got a new message from</p>
                             <table>
                                 <tr>
-                                    <td>".$_REQUEST["name"]."</td>
+                                    <td>".$_POST["name"]."</td>
                                 </tr>
                                 <tr>
-                                    <td>".$_REQUEST["email"]."</td>
+                                    <td>".$_POST["email"]."</td>
                                 </tr>
                                 <tr>
-                                    <td>Subject: ".$_REQUEST["subject"]."</td>
+                                    <td>Subject: ".$_POST["subject"]."</td>
                                 </tr>
                                 <tr>
-                                    <td>".$_REQUEST["message"]."</td>
+                                    <td>".$_POST["message"]."</td>
                                 </tr>
                             </table>
                         </body>
