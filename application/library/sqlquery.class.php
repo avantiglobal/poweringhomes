@@ -1,18 +1,22 @@
 <?php
 
 class SQLQuery {
+    // public $_link;
+    // public $id;
+    // protected $_result;
     public $_link;
-    public $id;
+    public $_mysqli;
     protected $_result;
+    protected $_table;
     
     /** Connects to database **/
     function connect($address, $account, $pwd, $name) {
-        $this->_link = mysqli_connect($address, $account, $pwd, $name) or die('Fail to Connect to Database: '.mysqli_connect_error());
+        $this->_mysqli = mysqli_connect($address, $account, $pwd, $name) or die('Fail to Connect to Database: '.mysqli_connect_error());
     }
  
     /** Disconnects from database **/
     function disconnect() {
-        if (@mysqli_close($this->_link) != 0) {
+        if (@mysqli_close($this->_mysqli) != 0) {
             return 1;
         }  else {
             return 0;
@@ -25,37 +29,51 @@ class SQLQuery {
     }
      
     function select($id = null) {
-        //$query = 'select * from `'.$this->_table.'` where `id` = \''.mysqli_real_escape_string($this->_link, $this->id).'\''; (old way: $this->id)
-        $query = 'select * from `'.$this->_table.'` where `id` = \''.mysqli_real_escape_string($this->_link, $id).'\'';
+        $query = 'select * from `'.$this->_table.'` where `id` = \''.mysqli_real_escape_string($this->_mysqli, $id).'\'';
         return $this->query($query);    
     }
-
-    // public function add($arrKeys, $arrValues){
-    //     $strQuery = "INSERT INTO ".$this->_table." (".implode(',','$arrKeys').") VALUES (".implode(',', $arrValues).")";
-    //     error_log("SQL QUERY CLASS [ADD][STR QUERY]" . $strQuery);
-    // }
-     
+    
     /** Custom SQL Query **/
-    function query($query, $singleResult = false) {
-        //$this->_result = mysqli_query($this->_link, $query);
+    function query($sql, $singleResult = false) {
         $data  = array();
-        if ($this->_result = mysqli_query($this->_link, $query)) {
-            /*while ($row = $this->_result->mysqli_fetch_assoc()) {
-                $data[] = $row;
-            }*/
-            if ($singleResult == 0){
-                while ($row = mysqli_fetch_assoc($this->_result)) {
-                    $data[] = $row;
+        if ($this->_result = $this->_mysqli->query($sql)) {
+            if ($this->_result->num_rows == 1){
+                $data = $this->_result->fetch_assoc();
+            }else{
+                while($obj = $this->_result->fetch_assoc()){
+                    $data[] = $obj;
                 }
             }
-            else{
-                return $this->_result;
-            }
+            //$this->_result->close();
         }
-        else{
-            $data = "Record not found";
-        }
+        unset($obj);
+        unset($sql);
+
         return $data;
+    }
+
+    function insert($arrCols, $arrValues){
+        return $this->_mysqli->real_query('INSERT INTO '.$this->_table.' ('.implode(',',$arrCols).') VALUES ("'.implode('","', $arrValues).'")');
+    }
+
+    function update($arrCols, $arrValues, $id){
+        if (count($arrCols) == count($arrValues)){
+            for ($i=0; $i < count($arrCols); $i++) { 
+                $updateValues[] = $arrCols[$i] .' = "' .$arrValues[$i] . '"';
+            }
+            $result = $this->_mysqli->real_query('UPDATE '.$this->_table.' SET '.implode(',',$updateValues).' WHERE id = '. $id);
+            if ($result){
+                return $result;
+            }else{
+                error_log('[UPDATE][MYSQL ERROR] ' . $this->getError());
+                exit;
+            }
+        }else{
+            error_log('[UPDATE] The amount of fields should match the amount of values.');
+            exit;
+        }
+        // error_log('[UPDATE VALUES]: ' . 'UPDATE '.$this->_table.' SET '.implode(',',$updateValues).' WHERE id = '. $id);
+        
     }
  
     /** Get number of rows **/
@@ -65,7 +83,7 @@ class SQLQuery {
 
     /** Get last insert ID **/
     function getLastInsertID() {
-        return mysqli_insert_id($this->_link);
+        return mysqli_insert_id($this->_mysqli);
     }
  
     /** Free resources allocated by a query **/
@@ -75,6 +93,6 @@ class SQLQuery {
  
     /** Get error string **/
     function getError() {
-        return mysqli_error($this->_link);
+        return mysqli_error($this->_mysqli_error);
     }
 }

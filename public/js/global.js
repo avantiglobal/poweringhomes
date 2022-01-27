@@ -1143,15 +1143,14 @@ $(document).ready(function () {
             }
         }
 
-        console.log("queryParams", queryParams);
-
         $.ajax({
             url: '/page/submitContactForm',
             type: "POST",
             data: queryParams,
             dataType: "json",
             success: function (data) {
-                if (data === true) {
+                //console.log('[DATA]', data.result);
+                if (data.result === true) {
                     $('.contact-wrapper').addClass('d-none');
                     $('.contact-thankyou').removeClass('d-none');
                 }

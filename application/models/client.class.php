@@ -14,8 +14,8 @@ class Client extends Model {
     }
 
     public function clientExists($email, $phone){
-        $isClient = $this->query("SELECT id FROM client WHERE email = '".$email."' AND phone = '".$phone."' ", 1);
-        return ($isClient == true ) ? true : false;
+        //error_log("SELECT id FROM client WHERE email = '".$email."' AND phone = '".$phone."' ");
+        return $this->query("SELECT id FROM client WHERE email = '".$email."' AND phone = '".$phone."' ");
     }
 
     public function saveContactInfo($name, $lastname, $email, $phone){

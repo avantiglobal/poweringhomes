@@ -130,22 +130,40 @@ class PageController extends Controller {
     function submitContactForm(){
         $this->actionScope = 'public';
         $this->doNotRenderHTML = 1;
-        
-        $values   = '"'.$_POST['first_name'].'", "'.$_POST['last_name'].'", "'.$_POST['phone'].'", "'.$_POST['email'].'"';
-        $Client   = $this->loadController('Client');
-        // $clientID = $Client->Client->clientExists($_POST['email'], $_POST['phone']);
+        // TODO: Security warning. I need to scape special chars in string vars by using  => mysqli_real_escape_string($string)
+        $values       = '"'.$_POST['first_name'].'", "'.$_POST['last_name'].'", "'.$_POST['phone'].'", "'.$_POST['email'].'"';
+        $Client       = $this->loadController('Client');
+        $Message      = $this->loadController('Message');
+        $isClient     = $Client->Client->clientExists($_POST['email'], $_POST['phone']);
+        $resultClient = false;
+        $client_id    = "";
 
-        // if ($clientID == false){
-            $result  = $Client->Client->query('INSERT INTO client (name, lastname, phone, email) VALUES (' . $values . ')', 1)  ;
-            echo json_encode($result);
-            exit;
-        // }
-        // else{
-        //     $result  = ($Client->Client->query('UPDATE client SET name = "'.$_POST['first_name'].'", lastname = "'.$_POST['last_name'].'" WHERE id = ' . $clientID, 1) == true ) 
-        //                                         ? '{"result":"true"}' 
-        //                                         : '{"result":"false"}';
-        //     echo json_encode($result);
-        // }
+        if (count($isClient) > 0){   
+            // Client exists. We update the client and save the message.
+            $client_id    = $isClient["id"];
+            $resultClient = $Client->Client->update(['name', 'lastname'], [$_POST['first_name'], $_POST['last_name']], $client_id);
+        }else{
+            // Client does not exist. We save the client.
+            $resultClient = $Client->Client->insert(['name', 'lastname', 'phone', 'email'], [$_POST['first_name'], $_POST['last_name'], $_POST['phone'], $_POST['email']]);
+            if ($resultClient){
+                $client_id = $Client->Client->getLastInsertID();
+            }else{
+                error_log('Error saving the new client. [MYSQL ERROR] ' . $Client->Client->getError);
+                exit;
+            }
+        }
+        if ($resultClient){
+            $resultMessage = $Message->Message->insert(['message', 'client_id'], [$_POST['message'], $client_id]);
+            if ($resultMessage){
+                echo json_encode(['result' => $resultMessage]);
+                exit;
+            }else{
+                error_log('Error saving the message. [MYSQL ERROR] ' . $Client->Client->getError);
+                exit;
+            }
+            //error_log('[RESULT MESSAGE] :: ' . json_encode($resultMessage));
+        }
+        exit;
     }
     
 
