@@ -6,7 +6,7 @@
     <meta name="description" content="Powering Homes: Providing solutions to low cost, clean, reliable energy your family can depend on." />
     <meta name="author" content="">
     <meta name="theme-color" content="#000">
-     <link rel="icon" href="<?php echo '/'.Application::getConfig('path.public-sys-img').'/favico.png' ?>" sizes="32x32" />
+     <link rel="icon" href="<?php echo '/img/favico.png' ?>" sizes="32x32" />
 
     <title><?php echo Application::getConfig("company.name") ?></title>
 
