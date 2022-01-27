@@ -18,5 +18,10 @@ class Message extends Model {
         $strQuery = "INSERT INTO ".$this->_table." (".implode(',', $arrKeys).") VALUES (\"".implode("\",\"", $arrValues)."\")";
         return $this->query($strQuery, true);
     }
+
+    public function countUnreadMessages(){
+        $strQuery = "SELECT COUNT(id) AS total FROM message WHERE message_read = 0";
+        return $this->query($strQuery)["total"];
+    }
  
 }

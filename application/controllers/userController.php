@@ -119,11 +119,9 @@ class UserController extends Controller {
         $username = isset($_POST['username']) ? $_POST['username'] : '';
         $password = hash('md5',$_POST['password']);
         $result   = ($this->User->query('SELECT * FROM user WHERE (username = "'.$username.'" OR email="'.$username.'") AND password = "'.$password.'"'));
-        error_log('[LOGIN RESULT] ' .json_encode($result));
 
         if (count($result) > 0){
             session_start();
-            // error_log('[LOGIN RESULT] ' .json_encode($result));
             $_SESSION['id'] = $result['id'];
             $_SESSION['fullname'] = $result['name'] . ' ' . $result['lastname'];
             $_SESSION['username'] = $username;
@@ -160,7 +158,7 @@ class UserController extends Controller {
         $Client = $this->loadController('Client');
         $this->set('quotes',$Client->Client->getQuoteRequests(5));
         $Message = $this->loadController('Message');
-        $this->set('messages_total',$Message->Message->numRows());
+        $this->set('messages_total',$Message->Message->countUnreadMessages());
         // $Proposal = $this->loadController('Proposal');
         // $this->set('num_proposals',$Proposal->Proposal->numRows());
     }
