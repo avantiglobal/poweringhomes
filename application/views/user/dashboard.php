@@ -87,7 +87,7 @@
                 </div>
               </a>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
+            <!-- <div class="col-sm-12 col-md-6 col-lg-6">
               <div class="card bg-primary mb-4 text-white">
                 <div class="card-body">
                   <div class="d-flex row">
@@ -120,7 +120,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         

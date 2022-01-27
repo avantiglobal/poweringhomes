@@ -113,20 +113,52 @@ class PageController extends Controller {
     function submit_quote(){
         $this->actionScope = 'public';
         $this->doNotRenderHTML = 1;
-        $values = '"'.$_POST['name'].'", "'.$_POST['lastname'].'", "'.$_POST['address'].'", "'.$_POST['unit'].'", ' .
-                    '"'.$_POST['city'].'", "'.$_POST['state'].'", "'.$_POST['zipcode'].'", "'.$_POST['phone'].'", ' .
-                    '"'.$_POST['email'].'"';
-        // $content = $_POST['content'];
-        // $content = html_entity_decode($content);
-        // $content = addslashes($content);
-        $Client  = $this->loadController('Client');
-        $result  = ($Client->Client->query('INSERT INTO client (name, lastname, address, unit, city, state, zipcode, phone, email) 
-                                            VALUES (' . $values . ')', 1) == true ) 
-                                            ? '{"result":"true"}' 
-                                            : '{"result":"false"}' ;
+        $fields = ['name', 'lastname', 'address', 'unit', 'city','state','zipcode','phone', 'email'];
+        $values = [$_POST['name'], $_POST['lastname'], $_POST['address'], $_POST['unit'], $_POST['city'], 
+                   $_POST['state'], $_POST['zipcode'], $_POST['phone'], $_POST['email']];
         
-        echo json_encode($result);
+        $Client       = $this->loadController('Client');
+        $Quote        = $this->loadController('Quote');
+        $isClient     = $Client->Client->clientExists($_POST['email'], $_POST['phone']);
+        $resultClient = false;
+        $client_id    = "";
+
+        if (count($isClient) > 0){   
+            // Client exists. We update the client and save the quote.
+            // TODO: Update Address
+            $client_id    = $isClient["id"];
+            $resultClient = $Client->Client->update(['name', 'lastname'], [$_POST['name'], $_POST['lastname']], $client_id);
+        }else{
+            // Client does not exist. We save the client.
+            $resultClient = $Client->Client->insert($fields, $values);
+            if ($resultClient){
+                $client_id = $Client->Client->getLastInsertID();
+            }else{
+                error_log('Error saving the new client. [MYSQL ERROR] ' . $Client->Client->getError);
+                exit;
+            }
+        }
+        if ($resultClient){
+            $resultQuote = $Quote->Quote->insert(['client_id'], [$client_id]);
+            if ($resultQuote){
+                echo json_encode(['result' => $resultQuote]);
+                exit;
+            }else{
+                error_log('Error saving the quote. [MYSQL ERROR] ' . $Quote->Quote->getError);
+                exit;
+            }
+            //error_log('[RESULT QUOTE] :: ' . json_encode($resultQuote));
+        }
+        exit;
+
+        // $result   = ($Client->Client->query('INSERT INTO client (name, lastname, address, unit, city, state, zipcode, phone, email) 
+        //                                     VALUES (' . $values . ')', 1) == true ) 
+        //                                     ? '{"result":"true"}' 
+        //                                     : '{"result":"false"}' ;
+        
+        // echo json_encode($result);
     }
+
     function submitContactForm(){
         $this->actionScope = 'public';
         $this->doNotRenderHTML = 1;

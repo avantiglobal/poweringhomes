@@ -50,9 +50,8 @@ $(document).ready(function () {
             return;
         }
 
-        console.log('Sends the form');
-        console.log('entra btn login' + username + " -- " + password + " -- " + defa_controller + " -- " + defa_action);
-
+        // console.log('Sends the form');
+        // console.log('entra btn login' + username + " -- " + password + " -- " + defa_controller + " -- " + defa_action);
 
         $.ajax({
             type: "POST",
@@ -1088,8 +1087,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (data) {
                 console.log('data: ' + data);
-                var client = jQuery.parseJSON(data);
-                if (client.result === "true") {
+                if (data.result == true) {
                     $('#quote-form-fields').addClass('d-none');
                     $('#quote-thankyou').removeClass('d-none');
                     $('#btn-quote-form').addClass('d-none');
