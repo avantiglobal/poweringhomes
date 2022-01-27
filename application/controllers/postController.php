@@ -28,7 +28,7 @@ class PostController extends Controller {
         $this->actionScope = 'public';
         $this->set('renderContentInline', 1);
         $this->Post->id = $args[0];
-        $post = @array_shift($this->Post->select($this->Post->id));
+        $post = $this->Post->select($this->Post->id);
 
         // print_r($post);
         $this->set('post_content', $post['content']);
@@ -90,7 +90,7 @@ class PostController extends Controller {
         $this->set('renderContentInline', 1);
         $this->Post->id = $args[0];
         $this->set('page_header','Edit Post');
-        $post = @array_shift($this->Post->select($this->Post->id));
+        $post = $this->Post->select($this->Post->id);
         $this->set('post', $post);
     }
 
