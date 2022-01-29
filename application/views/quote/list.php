@@ -26,8 +26,8 @@
 										<th>City</th>
 										<th>State</th>
 										<th>Req. Date</th>
-										<th>Bill Amount</th>
-										<th>Status</th>
+										<th align="center">Bill Amount</th>
+										<th align="center">Status</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -40,8 +40,8 @@
 										<td><?php echo $row['city'] ?></td>
 										<td><?php echo $row['state'] ?></td>
 										<td><?php echo $row['quote_date'] ?></td>
-										<td><?php echo '$' .$row['bill_amount'] ?></td>
-										<td><span class="badge bg-info text-light rounded-pill align-text-bottom"><?php echo $row['quote_status'] ?></span></td>
+										<td align="center"><?php echo '$' .$row['bill_amount'] ?></td>
+										<td align="center"><span class="badge bg-info text-light rounded-pill align-text-bottom"><?php echo $row['quote_status'] ?></span></td>
 									</tr>
 									<?php
 									}

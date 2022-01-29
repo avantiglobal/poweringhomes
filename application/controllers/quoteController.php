@@ -62,12 +62,13 @@ class QuoteController extends Controller {
         // //echo 'DELETE FROM song WHERE id = \''.$_POST['id'].'\'';
     }
 
-    function edit($id = null) {
-    //     $this->doNotRenderContentHeader = 1;
-    //     $this->User->id = $id;
-    //     $this->set('page_header','Edit User');
-    //     $song = @array_shift($this->User->select($this->User->id));
-    //     $this->set('song', $song);
+    function edit($args) {
+        $this->doNotRenderFooter = 1;
+        $this->set('renderContentInline', 1);
+        $this->set('page_header','Edit Quote');
+        $this->Quote->id = $args[0];
+        $quote = $this->Quote->getQuoteDetails($this->Quote->id);
+        $this->set('quote', $quote);
     }
 
     function update() {

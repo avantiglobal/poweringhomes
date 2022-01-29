@@ -24,6 +24,15 @@ class Quote extends Model {
         return $this->query($strQuery)["total"];
     }
 
+    public function getQuoteDetails($id){
+        $cWhere = " WHERE quote.id = ".$id;
+        
+        return $this->query("SELECT * 
+                             FROM ".$this->_table." 
+                             INNER JOIN client ON quote.client_id = client.id ".
+                             $cWhere );
+    }
+
     public function getQuoteRequests($limit = 5){
         $cWhere = " WHERE quote.quote_status = 'NEW' ORDER BY quote.id DESC LIMIT 0, " . $limit;
         
