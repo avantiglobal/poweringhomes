@@ -21,7 +21,7 @@
 													</div>
 													<div class="col-md-8">
 														<div class="card-body">
-															<a href="/post/view/<?php echo $post['id']?>" class="stretched-link"><h5 class="card-title text-primary"><?php echo $post['title'] ?></h5></a>
+															<a href="/post/view/<?php echo $post['title_seo']?>" class="stretched-link"><h5 class="card-title text-primary"><?php echo $post['title'] ?></h5></a>
 															<p class="card-text"><?php echo $post['summary'] ?></p>
 															<p class="card-text"><small class="text-muted"><?php echo timeAgo($post['updated_on']) ?></small></p>
 														</div>

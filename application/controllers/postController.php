@@ -27,8 +27,8 @@ class PostController extends Controller {
     function view($args) {
         $this->actionScope = 'public';
         $this->set('renderContentInline', 1);
-        $this->Post->id = $args[0];
-        $post = $this->Post->select($this->Post->id);
+        // $this->Post->id = $args[0];
+        $post = $this->Post->getPost($args[0]);
 
         // print_r($post);
         $this->set('post_content', $post['content']);
@@ -39,8 +39,9 @@ class PostController extends Controller {
                                                         FROM category 
                                                         LEFT JOIN post ON post.category = category.id 
                                                         ORDER BY category_name DESC LIMIT 0,20"));
+        //$this->set('url', strip_tags($args[0]));
     }
-     
+
     function list() {
         // $this->doNotRenderContentHeader = 1;
         $this->doNotRenderFooter = 1;
@@ -57,7 +58,7 @@ class PostController extends Controller {
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');
         $this->set('banner_subtitle', 'Stay informed about our news and insights.');
-        $this->set('posts',$this->Post->query("SELECT post.id, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category
+        $this->set('posts',$this->Post->query("SELECT post.id, post.title_seo, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category
                                                 FROM post
                                                 LEFT JOIN category ON post.category = category.id
                                                 WHERE post.status = 1 " . $cWhere));
@@ -70,14 +71,21 @@ class PostController extends Controller {
      
     function add() {
         $this->doNotRenderHTML = 1;
-        $content = $_POST['content'];
-        $content = html_entity_decode($content);
-        $content = addslashes($content);
-        $values = '"'.$_POST['title'].'", "'.$content.'"';
-        $result = ($this->Post->query('INSERT INTO post (title, content) VALUES ('.$values.')', 1) == true ) 
-                    ? '{"result":"true", "last_id" : "' . $this->Post->getLastInsertID() . '" }' : '{"result":"false"}' ;
-        //echo $content;
-        echo json_encode($result);
+        $content    = $_POST['content'];
+        $content    = html_entity_decode($content);
+        $content    = addslashes($content);
+        $title_seo  = strtolower(trim(str_replace("'", "", $_POST['title'])));
+        $title_seo  = preg_replace ('/[^\p{L}\p{N}]/u', '-', $title_seo);
+        $title_seo  = preg_replace('/__+/', '-', $title_seo);
+        $resultPost = $this->Post->insert(['title_seo', 'title', 'content'], [$title_seo, $_POST['title'], $content]);
+
+        if ($resultPost){
+            echo json_encode(['result' => $resultPost, 'last_id' => $this->Post->getLastInsertID() ]);
+            exit;
+        }else{
+            error_log('Error saving the quote. [MYSQL ERROR] ' . $this->Post->getError);
+            exit;
+        }
     }
      
     function delete() {
@@ -97,13 +105,22 @@ class PostController extends Controller {
     function update($args) {
         $this->doNotRenderHTML = 1;
         //$values = ' title = "'.$_POST['title'].'", content = "'.$_POST['content'].'"';
-        $content = $_POST['content'];
-        $content = html_entity_decode($content);
-        $content = addslashes($content);
-        $values  = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
-        $result  = ($this->Post->query('UPDATE post SET '.$values.' WHERE id = "'.$_POST['id'].'"', 1) == true ) ? '{"result":"true"}' : '{"result":"false"}' ;
-        //echo('UPDATE post SET '.$values.' WHERE id = "'.$_POST['id'].'"');
-        echo json_encode($result);
+        $content    = $_POST['content'];
+        $content    = html_entity_decode($content);
+        $content    = addslashes($content);
+        $title_seo  = strtolower(trim(str_replace("'", "", $_POST['title'])));
+        $title_seo  = preg_replace ('/[^\p{L}\p{N}]/u', '-', $title_seo);
+        $title_seo  = preg_replace('/__+/', '-', $title_seo);
+        $values     = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
+        $resultPost = $this->Post->update(['title_seo', 'title', 'content'], [$title_seo, $_POST['title'], $content], $_POST['id']);
+        
+        if ($resultPost){
+            echo json_encode(['result' => $resultPost ]);
+            exit;
+        }else{
+            error_log('Error saving the quote. [MYSQL ERROR] ' . $this->Post->getError);
+            exit;
+        }
     }
 
     function upload_image(){

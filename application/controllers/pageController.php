@@ -148,16 +148,8 @@ class PageController extends Controller {
                 error_log('Error saving the quote. [MYSQL ERROR] ' . $Quote->Quote->getError);
                 exit;
             }
-            //error_log('[RESULT QUOTE] :: ' . json_encode($resultQuote));
         }
         exit;
-
-        // $result   = ($Client->Client->query('INSERT INTO client (name, lastname, address, unit, city, state, zipcode, phone, email) 
-        //                                     VALUES (' . $values . ')', 1) == true ) 
-        //                                     ? '{"result":"true"}' 
-        //                                     : '{"result":"false"}' ;
-        
-        // echo json_encode($result);
     }
 
     function submitContactForm(){

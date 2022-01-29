@@ -5,6 +5,7 @@
           <div class="col-md-12">
               <div class="post__page__header">
                 <h2><?php echo $post_title ?></h2>
+                <h5><?php //echo $url ?></h5>
               </div>
             </div>
           </div>

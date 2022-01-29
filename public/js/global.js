@@ -568,17 +568,15 @@ $(document).ready(function () {
                 dataType: "json",
                 data: "title=" + title + '&content=' + encodeURIComponent(content) + '&id=' + id,
                 success: function (data) {
-                    //console.log(data);
-                    var post = jQuery.parseJSON(data);
-                    if (post.result === 'true') {
+                    console.log(data);
+                    //var post = jQuery.parseJSON(data);
+                    if (data.result === true) {
                         if (id === '') {
-                            window.location = "/post/edit/" + post.last_id
+                            window.location = "/post/edit/" + data.last_id
                         }
                         else {
                             const myAlert = document.querySelector('#alertToast');
-
                             const bsAlert = new bootstrap.Toast(myAlert);//inizialize it
-
                             bsAlert.show();//show it
 
                             const myAlertMsg = $('#toast-body');
