@@ -83,15 +83,44 @@
 					<div class="card card-solid bg-dark-gray color-white">
 						<!-- <div class="card-header"><i class="fa fa-gear"></i> <h4 class="card-title">Options</h4></div> -->
 						<div class="card-body">
-							<div class="row py-4">
+							<div class="row pt-4 pb-3">
 								<div class="col-12 text-center">
 									<div><h4>Bill Amount</h4></div>
 									<h2>$<?php echo $quote['bill_amount'] ?></h2>
 								</div>
 							</div>
 							<hr>
+
+							<div class="row">
+								<div class="col-12 mb-0">
+									<div class="p-0 px-3">
+										<?php 
+											$reqDate = date_create($quote['created_on']);
+										?>
+										<b>Request Date:</b> 
+										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="px-3">
+										<?php 
+											$reqDate = date_create($quote['updated_on']);
+										?>
+										<b>Last Update:</b> 
+										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										</span>
+									</div>
+								</div>
+							</div>
+							<hr class="mb-3">
 							<div class="row">
 								<div class="col-12 mb-3">
+									Update Status
 									<select name="quote_status" id="quote_status" class="form-select" aria-label="Set Quote Status">
 										<option value="NEW">New</option>
 										<option value="PRC">In Process</option>
