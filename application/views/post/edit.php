@@ -36,9 +36,19 @@
 			<!-- Editor  -->
 			<div class="row">
 				<div class="col-md-9">
-					<div class="row pad-10-bottom">
+					<div class="row pb-3">
 						<div class="col-sm-12">
 							<input type="text" class="form-control input-lg" id="post-title" placeholder="Title" required value="<?php echo $post['title'] ?>" autofocus="" data-placement="bottom" autofocus>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 mb-3">
+							<div class="form-floating">
+								<textarea class="form-control" placeholder="Leave a brief summary here" id="post-summary" name="post-summary" style="height: 100px">
+									<?php echo trim($post['summary']) ?>
+								</textarea>
+								<label for="post-summary">Summary</label>
+							</div>
 						</div>
 					</div>
 					<div class="row">
@@ -54,6 +64,7 @@
 							</script>
 						</div>
 					</div>
+					
 				</div>
 				<div class="col-md-3">
 					<div class="card card-solid bg-dark-gray color-white">

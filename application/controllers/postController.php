@@ -106,13 +106,16 @@ class PostController extends Controller {
         $this->doNotRenderHTML = 1;
         //$values = ' title = "'.$_POST['title'].'", content = "'.$_POST['content'].'"';
         $content    = $_POST['content'];
+        $summary    = $_POST['summary'];
         $content    = html_entity_decode($content);
         $content    = addslashes($content);
+        $summary    = html_entity_decode($summary);
+        $summary    = addslashes($summary);
         $title_seo  = strtolower(trim(str_replace("'", "", $_POST['title'])));
         $title_seo  = preg_replace ('/[^\p{L}\p{N}]/u', '-', $title_seo);
         $title_seo  = preg_replace('/__+/', '-', $title_seo);
         $values     = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
-        $resultPost = $this->Post->update(['title_seo', 'title', 'content'], [$title_seo, $_POST['title'], $content], $_POST['id']);
+        $resultPost = $this->Post->update(['title_seo', 'title', 'summary', 'content'], [$title_seo, $_POST['title'], $summary, $content], $_POST['id']);
         
         if ($resultPost){
             echo json_encode(['result' => $resultPost ]);
