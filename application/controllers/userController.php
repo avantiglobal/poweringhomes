@@ -155,8 +155,11 @@ class UserController extends Controller {
         
         // $this->User->selectAll();
         // $this->set('num_users',$this->User->getNumRows());
-        $Client = $this->loadController('Client');
-        $this->set('quotes',$Client->Client->getQuoteRequests(5));
+        $Quote = $this->loadController('Quote');
+        //error_log('[QUOTE REQUEST] ' . json_encode($Quote->Quote->getQuoteRequests(5)));
+        $this->set('quotes',$Quote->Quote->getQuoteRequests(5));
+        // $Client = $this->loadController('Client');
+        $this->set('new_quotes_total',$Quote->Quote->countNewQuotes());
         $Message = $this->loadController('Message');
         $this->set('messages_total',$Message->Message->countUnreadMessages());
         // $Proposal = $this->loadController('Proposal');

@@ -9,7 +9,14 @@
           <!-- Quote Requests -->
           <div class="card border-0">
             <div class="card-body table-responsive">
-              <h5 class="fw-bold">Latest Quote Requests <span class="badge bg-info text-light rounded-pill align-text-bottom"><?php echo sizeof($quotes) ?></span></h5>
+              <div>
+                <h5 class="fw-bold">Latest Quote Requests 
+                  <span class="float-end badge bg-info text-light rounded-pill align-text-bottom">
+                    <?php echo $new_quotes_total ?>
+                  </span>
+                  </h5>
+              </div>
+              <div class="bg-light p-1 d-flex justify-content-end px-2"><a href="/quote/list"><i class="bi bi-eye"></i> View All </a></div>
               <?php //echo $todo;
                 if (sizeof($quotes) > 0){
               ?>
@@ -27,10 +34,11 @@
                         foreach ($quotes as $row) {
                       ?>
                       <tr class="tr_table" data-query="<?php  echo $row['id'] ?>" data-action="view">
-                        <!-- <td><?php  echo $row['id'] ?></td> -->
-                        <td><?php  echo $row['name'].' '.$row['lastname'] ?></td>
-                        <td><?php  echo $row['email'] ?></td>
-                        <td><?php  echo $row['phone'] ?></td>
+                        <td><?php  echo $row['name'] ?></td>
+                        <td><?php  echo $row['city'] ?></td>
+                        <td><?php  echo $row['state'] ?></td>
+                        <td><?php  echo $row['quote_date'] ?></td>
+                        <td><?php  echo '$' .$row['bill_amount'] ?></td>
                       </tr>
                       <?php
                       }

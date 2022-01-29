@@ -122,6 +122,7 @@ class PageController extends Controller {
         $isClient     = $Client->Client->clientExists($_POST['email'], $_POST['phone']);
         $resultClient = false;
         $client_id    = "";
+        $billAmount   = $_POST["quote-bill-amount"];
 
         if (count($isClient) > 0){   
             // Client exists. We update the client and save the quote.
@@ -139,7 +140,7 @@ class PageController extends Controller {
             }
         }
         if ($resultClient){
-            $resultQuote = $Quote->Quote->insert(['client_id'], [$client_id]);
+            $resultQuote = $Quote->Quote->insert(['client_id', 'bill_amount'], [$client_id, $billAmount]);
             if ($resultQuote){
                 echo json_encode(['result' => $resultQuote]);
                 exit;

@@ -4,7 +4,7 @@
 class QuoteController extends Controller {
     
     function beforeAction () {
-
+        $this->setTheme(Application::getConfig('default.theme'));
     }
  
     function index(){
@@ -17,6 +17,15 @@ class QuoteController extends Controller {
         // $this->set('page_description', 'Add a New User');        
     }
     
+    function list() {
+        // $this->doNotRenderContentHeader = 1;
+        $this->doNotRenderFooter = 1;
+        $this->set('renderContentInline', 1);
+        $this->set('page_header', 'Quote Requests');
+        // $this->set('page_description', 'Posts');
+        $this->set('quotes',$this->Quote->getQuoteRequests(1000));
+    }
+
     function view($id = null,$name = null) {
         // $this->doNotRenderContentHeader = 1;
         // $this->set('page_header', 'User profile');
@@ -74,7 +83,7 @@ class QuoteController extends Controller {
     }
     
     function afterAction() {
-        
+
     }
 
     function getTotalMessages(){

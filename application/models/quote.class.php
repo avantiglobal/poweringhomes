@@ -19,9 +19,17 @@ class Quote extends Model {
         return $this->query($strQuery, true);
     }
 
-    public function countUnreadMessages(){
-        $strQuery = "SELECT COUNT(id) AS total FROM ".$this->_table." WHERE message_read = 0";
+    public function countNewQuotes(){
+        $strQuery = "SELECT COUNT(id) AS total FROM ".$this->_table." WHERE quote_status = 'NEW'";
         return $this->query($strQuery)["total"];
     }
- 
+
+    public function getQuoteRequests($limit = 5){
+        $cWhere = " WHERE quote.quote_status = 'NEW' ORDER BY quote.id DESC LIMIT 0, " . $limit;
+        
+        return $this->query("SELECT quote.id, CONCAT(name, ' ', lastname) AS name, city, state, DATE_FORMAT(quote.created_on,'%m/%d/%Y') AS quote_date, bill_amount, quote_status 
+                             FROM ".$this->_table." 
+                             INNER JOIN client ON quote.client_id = client.id ".
+                             $cWhere );
+    }
 }

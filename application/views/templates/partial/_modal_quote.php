@@ -13,7 +13,7 @@
                     <h6>Complete your information below to continue.</h6>
                     <div class="row pb-4 pb-md-3">
                         <div class="col-12 m-auto">
-                            <div class="text-center rounded-circle m-auto bg-secondary d-flex align-items-center justify-content-center mb-2" style="width:50px !important; height:50px !important;"><span class="fs-2 text-white">1</span></div>
+                            <div class="text-center rounded-circle m-auto bg-secondary d-flex align-items-center justify-content-center mb-2" style="width:50px !important; height:50px !important;"><span class="fs-4 text-white">1</span></div>
                             <div class="text-center">
                                 <span class="fs-6">How much is your TYPICAL electricity bill?</span>
                             </div>
@@ -31,7 +31,7 @@
 
                     <div class="row pb-3 pb-md-4">
                         <div class="col-12 m-auto">
-                        <div class="text-center rounded-circle m-auto bg-secondary d-flex align-items-center justify-content-center mb-2" style="width:50px !important; height:50px !important;"><span class="fs-2 text-white">2</span></div>
+                        <div class="text-center rounded-circle m-auto bg-secondary d-flex align-items-center justify-content-center mb-2" style="width:50px !important; height:50px !important;"><span class="fs-4 text-white">2</span></div>
                             <div class="text-center">
                                 <span class="fs-6">Tell Us More About You</span>
                             </div>
