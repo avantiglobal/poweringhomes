@@ -1,4 +1,4 @@
-<div class="our-process text-center py-5">
+<div class="our-process text-center py-5 bg-light">
     <div class="container">
         <div>
             <h3 class="display-6 fw-bold">Our process</h3>

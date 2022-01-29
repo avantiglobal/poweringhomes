@@ -1025,13 +1025,14 @@ $(document).ready(function () {
     $('.zipcode-checker-form').submit((e) => {
         e.preventDefault();
 
-        const zipcode = ($('#zipcode-checker-input').val() == "" || $('#zipcode-checker-input').val() == undefined) ? $('#zipcode-checker-input2').val() : $('#zipcode-checker-input').val();
-        const data = "?zip=" + zipcode;
+        const form_name = $(e.target).closest('form').attr('name');
+        const zip_code = $('#' + form_name + '__input').val();
+        const data = "?zip=" + zip_code;
         const apiURL = $('#apiURL').val();
-        console.log('apiURL', apiURL + data);
-        if (!isNumeric(zipcode)) {
-            $('#zipcode-form-error').removeClass('d-none');
-            $('#zipcode-form-error').html("ZIP Code must be a numeric value");
+
+        if (!isNumeric(zip_code)) {
+            $('#' + form_name + '__form-error').removeClass('d-none');
+            $('#' + form_name + '__form-error').html("ZIP Code must be a numeric value");
             return;
         }
 
@@ -1041,11 +1042,16 @@ $(document).ready(function () {
             url: apiURL + data,
             success: function (data) {
                 if (data.message === 'success') {
+                    $('#' + form_name + '__form-error').addClass('d-none');
                     if (data.data['powur_served'] == 1) {
                         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
                             keyboard: false
                         })
                         myModal.show();
+                        $('#quote-bill-amount').focus();
+                        $('#city').val(data.data.city)
+                        $('#state').val(data.data.state_id)
+                        $('#zipcode').val(data.data.zip)
                     } else {
                         alert("Sorry, " + data.data["city"] + ", " + data.data["state_id"] + ", is not within our served areas.");
                     }
@@ -1053,8 +1059,8 @@ $(document).ready(function () {
                     //window.location = "/" + defa_controller + "/" + defa_action;
                 } else {
                     console.log('apiURL + data', apiURL + data);
-                    $('#zipcode-form-error').removeClass('d-none');
-                    $('#zipcode-form-error').html("Invalid ZIP Code");
+                    $('#' + form_name + '__form-error').removeClass('d-none');
+                    $('#' + form_name + '__form-error').html("Invalid ZIP Code");
                 }
             }
         });
@@ -1072,7 +1078,7 @@ $(document).ready(function () {
         const formElements = e.target.elements;
         let queryParams = "";
         for (var i = 0, element; element = formElements[i++];) {
-            if (element.type !== "button" && element.value !== "") {
+            if (element.type !== "button") {
                 const connector = i == 1 ? "" : "&";
                 queryParams += connector + element.name + "=" + element.value;
             }
@@ -1086,11 +1092,12 @@ $(document).ready(function () {
             data: queryParams,
             dataType: "json",
             success: function (data) {
-                console.log('data: ' + data);
                 if (data.result == true) {
                     $('#quote-form-fields').addClass('d-none');
                     $('#quote-thankyou').removeClass('d-none');
                     $('#btn-quote-form').addClass('d-none');
+                    $('#modal-cancel-btn').addClass('d-none');
+                    $('#modal-close-btn').removeClass('d-none');
                 }
             },
             error: function (e) {
