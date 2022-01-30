@@ -107,7 +107,7 @@ class PageController extends Controller {
     function faqs(){
         $this->actionScope = 'public';
         $this->set('banner_title', 'FAQ\'s');
-        $this->set('banner_subtitle', 'Do you have questions? We hope you can your answers here.');
+        $this->set('banner_subtitle', 'Do you have questions? We hope you can find your answers here.');
     }
 
     function submit_quote(){
