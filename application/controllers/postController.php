@@ -62,7 +62,7 @@ class PostController extends Controller {
         $this->set('posts',$this->Post->query("SELECT post.id, post.title_seo, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category
                                                 FROM post
                                                 LEFT JOIN category ON post.category = category.id
-                                                WHERE post.status = 1 " . $cWhere));
+                                                WHERE post.status = 1 " . $cWhere . " ORDER BY post.updated_on DESC"));
     
         $this->set('categories', $this->Post->query("SELECT DISTINCT category.id, category.name AS category_name 
                                                         FROM category 
