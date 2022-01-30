@@ -1,8 +1,8 @@
     <!-- Bootstrap JS -->
     <script src="/assets/bootstrap_5/js/bootstrap-bundle-5.0.2.js"></script>
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <!-- Custom JS -->
     <!-- 
     <script src="/js/ui.js"></script> -->

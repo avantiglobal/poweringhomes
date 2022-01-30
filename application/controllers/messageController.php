@@ -7,6 +7,7 @@ class MessageController extends Controller {
         //$this->setLayout('frontend');
         $this->set('user_img','/img/user/default.jpg');
         $this->set('user_name', 'John Doe');
+        $this->setTheme(Application::getConfig('default.theme'));
     }
  
     function index(){
@@ -41,6 +42,14 @@ class MessageController extends Controller {
         $this->set('todo',$this->Song->selectAll());
         $this->set('song','Lorem Ipsum User');
     }
+
+    function list() {
+        // $this->doNotRenderContentHeader = 1;
+        $this->doNotRenderFooter = 1;
+        $this->set('renderContentInline', 1);
+        $this->set('page_header', 'Messages');
+        $this->set('messages',$this->Message->getMessages(1000));
+    }
      
     function add() {
         $this->doNotRenderHTML = 1;
@@ -55,15 +64,15 @@ class MessageController extends Controller {
     function delete() {
         $this->doNotRenderHTML = 1;
         echo ($this->User->query('DELETE FROM song WHERE id = \''.$_POST['id'].'\'', 1)) ? 'true' : 'false';
-        //echo 'DELETE FROM song WHERE id = \''.$_POST['id'].'\'';
     }
 
-    function edit($id = null) {
-        $this->doNotRenderContentHeader = 1;
-        $this->User->id = $id;
-        $this->set('page_header','Edit User');
-        $song = @array_shift($this->User->select($this->User->id));
-        $this->set('song', $song);
+    function edit($args) {
+        $this->doNotRenderFooter = 1;
+        $this->set('renderContentInline', 1);
+        $this->set('page_header','Message Details');
+        $this->Message->id = $args[0];
+        $message = $this->Message->getMessageDetails($this->Message->id);
+        $this->set('message', $message);
     }
 
     function update() {

@@ -1,150 +1,193 @@
-	<div class="alert alert-success text-center hidden" id="alert-dismiss" role="alert" >
-	  <strong>Done!</strong> User updated successfully!&nbsp;
-	</div>
-
-  <div class="row bg-light mt-0 py-2">
-    <div class="col-auto mr-auto content-header">
-      <h1><?php echo $page_header ?></h1>
-    </div>
-    <div class="col-auto">
-        <a class="btn btn-primary btn-lg text-white" id="btn-user-form"><i class="fa fa-save"></i><i id="preloader"></i></a>
-        <a class="btn btn-danger  btn-lg text-white" id="btn-delete-user"><i class="fa fa-trash"></i></a>
-        <a class="btn btn-default btn-lg" href="/user/viewall"><i class="fa fa-times"></i></a>
-    </div>
-  </div>
-	<div class="content">
-		<div class="row">
-			<div class="col-md-8">
-				<div class="box box-info">
-					<div class="box-header with-border">
-						<h3 class="box-title">Personal Data</h3>
-					</div>
-					<div class="box-body">
-						<div class="row">
-							<div class="form-group col-sm-6">
-							    <label for="name">Name</label>
-							    <input type="text" class="form-control" id="name" placeholder="Name" value="<?php echo $user['name'] ?>">
-							</div>		
-							<div class="form-group col-sm-6">
-							    <label for="lastname">Last Name</label>
-							    <input type="text" class="form-control" id="lastname" placeholder="Last Name" value="<?php echo $user['lastname'] ?>">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-6">
-							    <label for="">Email</label>
-							    <input type="email" class="form-control" id="email" name="" placeholder="User contact Email" value="<?php echo $user['email'] ?>">
-							</div>		
-							<div class="form-group col-sm-6">
-							    <label for="">Phone</label>
-							    <input type="text" class="form-control" id="phone" name="" placeholder="Phone Number" value="<?php echo $user['phone'] ?>">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-12">
-							    <label for="">Address</label>
-							    <input type="text" class="form-control" id="address" placeholder="User Address" value="<?php echo $user['address'] ?>">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="box box-default collapsed-box">
-					<div class="box-header with-border">
-		                <h3 class="box-title">Agency Data</h3>
-
-		                <div class="box-tools pull-right">
-		                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-		                  </button>
-		                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-		                </div>
-		            </div>
-					<div style="display: none;" class="box-body">
-						<div class="row">
-							<div class="form-group col-sm-4">
-							    <label for="">Agency</label>
-							    <select class="form-control" id="agency_id" name="agency_id">
-							    	<option>Select an Agency</option>
-							    	<option value="">TopOne US</option>
-							    	<option value="">TopOne México</option>
-							    	<option value="">TopOne Deutschland</option>
-							    	<option value="">TopOne Venezuela :'(</option>
-							    </select>
-							</div>		
-							<div class="form-group col-sm-4">
-							    <label for="">Type</label>
-							    <select class="form-control" id="type" name="type">
-							       	<option>Type of User</option>
-							    	<option value="1">Seller</option>
-							    	<option value="2">Project Manager</option>
-							    	<option value="3">Developer</option>
-							    	<option value="4">Administrator</option>
-							    	<option value="5">Accountant</option>
-							    </select>
-							</div>
-							<div class="form-group col-sm-4">
-							    <label for="">Status</label>
-							    <select class="form-control" id="status" name="status">
-							       	<option>Select a Status</option>
-							    	<option value="1">Active</option>
-							    	<option value="2">Inactive</option>
-							    </select>
-							</div>
-						</div>
-					</div>
-				</div>
+<!-- HTML EDITOR -->
+ <!-- <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script> -->
+<!-- <script src="<?php //echo LIBRARY_PATH . "/ckeditor/ckeditor.js" ?>"></script> --> 
+<script src="/assets/ckeditor/ckeditor.js"></script>
+<!-- Header Template -->
+<?php include_once(TEMPLATE_PATH . '/partial/_top_menu.php')  ?>
+<script>
+	(function() {
+   // your page initialization code here
+   // the DOM will be available here
+   		//messageRead('msgId')
+		//    $.ajax({
+        //     type: "POST",
+        //     url: "/message/read",
+        //     data: "id=" + id,
+        //     cache: "false",
+        //     success: function (data) {
+        //         console.log(data);
+        //         if (data === 'true') {
+        //             clearError();
+        //             window.location = "/" + defa_controller + "/" + defa_action;
+        //         } else {
+        //             showError("Wrong username or password");
+        //             //$("#preloader").html("");
+        //         }
+        //     },
+        //     beforeSend: function () {
+        //         clearError();
+        //         // $("#preloader").html("<i class='fa fa-spinner fa-spin'>");
+        //     },
+        // });
+	})();
+</script>
+<main>
+	<!-- alert  TODO: include this in a HTML helper-->
+	
+	<div id="alertToast" class="toast align-items-center text-white bg-primary border-0 position-absolute p-3 bottom-0 end-0 m-1" role="alert" aria-live="assertive" aria-atomic="true">
+		<div class="d-flex"> 
+			<div class="toast-body" id="toast-body">
+				Hello, world! This is a toast message.
 			</div>
-			<div class="col-md-4">
-				<div class="box box-info">
-					<div class="box-header with-border">
-						<h3 class="box-title">Login Data</h3>
-					</div>
-					<div class="box-body">
-						<div class="row">
-							<div class="form-group col-sm-12">
-							    <label for="">Username</label>
-							    <input type="text" class="form-control" id="username" name="username" placeholder="" value="<?php echo $user['username'] ?>">
-							</div>
-						</div>
-						<div class="row">
-							<div class="form-group col-sm-12">
-							    <label for="">Password</label>
-							    <input type="password" class="form-control mb-2" id="password" name="password" placeholder="" style="display: none;" value="">
-							    <a href="#" class="form-control btn btn-default" id="btn-change-pass">Change password</a>
-							    
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<input type="hidden" id="user-id" value="<?php echo $user['id'] ?>">
-      		<input type="hidden" id="saved-username" value="<?php echo $user['username'] ?>">
-			<input type="hidden" id="pwdval" value="0">
-
+			<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 		</div>
-
 	</div>
-		<!--
-		User
-		● user_id
-		● name
-		● lastname
-		● nickname
-		● phone
-		● email
-		● address
-		● type
-			1 Seller
-			2 Project Manager
-			3 Developer
-			4 Administrator
-			5 Accountant
-		● agency_id
-		● username
-		● password
-		● preferences
-		● date_in
-		● date_out
-		● status
-			1 Active
-			2 Inactive
-		-->
+	
+
+	<div class="container">
+		<div class="row content-header bg-white mt-2 py-2">
+			<div class="col-auto me-auto content-header__title">
+			<h2><?php echo $page_header ?></h2>
+			</div>
+			<div class="col-auto">
+				<a class="btn btn-default" href="/message/view/<?php echo $message['id'] ?>" title="View" target="_blank"><i class="bi bi-eye"></i> View Message</a>
+				<a class="btn btn-default" href="/message/list" title="Back"><i class="bi bi-arrow-left"></i> Cancel</a>
+			</div>
+		</div>
+	</div>
+
+	<section class="message message__new">
+		<div class="container">	
+			<div class="content">
+			<!-- Editor  -->
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row pad-10-bottom">
+						<div class="col-sm-12 p-4 mb-4 bg-light rounded-3">
+							<div class="row mb-1">
+								<div class="col-11"><h4>Client Info</h4></div>
+								<div class="col-1"><span class="text-center"><a href="/client/edit/<?php echo $message["id"] ?>"><i class="bi bi-pencil"></i></a></span></div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-12 col-md-6">
+									<b class="pe-2">Name:</b>
+									<?php echo $message["name"] . " " .$message["lastname"] ?>
+								</div>
+								<div class="col-12 col-md-6">
+									<b class="pe-2">Address:</b>
+									<?php echo $message["address"] . ", " .$message["unit"] . ", ". $message["city"] . ", " .$message["state"] . ", " .$message["zipcode"]  ?> 
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-12 col-md-6">
+									<b class="pe-2">Phone:</b>
+									<?php echo $message["phone"] ?>
+								</div>
+								<div class="col-12 col-md-6">
+									<b class="pe-2">Email:</b>
+									<?php echo $message["email"] ?> 
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="card">
+								<div class="caard-text p-2 py-4">
+									<?php echo $message['message'] ?>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row d-none">
+						<div class="col-sm-12">
+							<!-- <input type="text" class="form-control input-lg" id="message-title" placeholder="Title" required value="<?php //echo $message['title'] ?>" autofocus="" data-placement="bottom" autofocus> -->
+							<textarea name="message-content" id="message-content">
+								<?php echo $message['message'] ?>
+							</textarea>
+							<script>
+									CKEDITOR.replace( 'message-content');
+									// CKEDITOR.config.extraPlugins: 'simage'  //to enable to plugin
+									// CKEDITOR.config.imageUploadURL: "/img/"	 ?>
+									// CKEDITOR.config.dataParser: func(data)
+							</script>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="card card-solid bg-dark-gray color-white">
+						<!-- <div class="card-header"><i class="fa fa-gear"></i> <h4 class="card-title">Options</h4></div> -->
+						<div class="card-body">
+							<!-- <div class="row pt-4 pb-3">
+								<div class="col-12 text-center">
+									<div><h4>Bill Amount</h4></div>
+									<h2>$<?php echo $message['bill_amount'] ?></h2>
+								</div>
+							</div>
+							<hr>
+
+							<div class="row">
+								<div class="col-12 mb-0">
+									<div class="p-0 px-3">
+										<?php 
+											$reqDate = date_create($message['created_on']);
+										?>
+										<b>Request Date:</b> 
+										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="px-3">
+										<?php 
+											$reqDate = date_create($message['updated_on']);
+										?>
+										<b>Last Update:</b> 
+										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										</span>
+									</div>
+								</div>
+							</div>
+							<hr class="mb-3">
+							<div class="row">
+								<div class="col-12 mb-3">
+									Update Status
+									<select name="message_status" id="message_status" class="form-select" aria-label="Set Message Status">
+										<option value="NEW">New</option>
+										<option value="PRC">In Process</option>
+										<option value="APR">Message Approved</option>
+										<option value="REJ">Message Rejected</option>
+										<option value="ARC">Archived</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 text-left">
+									<a class="btn btn-primary d-block" id="btn-save-message"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
+								</div>
+							</div> -->
+							<div class="row mt-3 text-center">
+								<!-- <div class="col-sm-4">Active</div>
+								<div class="col-sm-4 text-center pull-right">
+									<label class="switch">
+									<input type="checkbox" checked>
+									<span class="slider round"></span>
+									</label>
+								</div> -->
+								<a href="#" class="text-danger pt-3" id="message-delete" data-id="<?php echo $message['id'] ?>"><i class="bi bi-trash"></i> Delete Message</a>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+				<input type="hidden" id="message-id" value="<?php echo $message['id'] ?>">
+			</div>
+			</div>
+		</div>
+	</section>
+</main>

@@ -15,15 +15,18 @@ $(document).ready(function () {
     // ----
 
     //Onload function
+    $(document).ready(function () {
+        $('#data_table').DataTable();
+    });
     // $(function () {
-    //     // $('#data_table').DataTable({
-    //     //     'paging': true,
-    //     //     'lengthChange': false,
-    //     //     'searching': true,
-    //     //     'ordering': true,
-    //     //     'info': true,
-    //     //     'autoWidth': false
-    //     // });
+    //     $('#data_table').DataTable({
+    //         'paging': true,
+    //         'lengthChange': false,
+    //         'searching': true,
+    //         'ordering': true,
+    //         'info': true,
+    //         'autoWidth': false
+    //     });
 
     //     $("#add_err").css('display', 'none', 'important');
     //     if ($('#intended_domain').val() !== '') {
@@ -1165,6 +1168,10 @@ $(document).ready(function () {
             }
         });
     });
+
+    function messageRead(msgId) {
+        alert('MEssage read', msgId);
+    }
 });
 
 function isNumeric(str) {
