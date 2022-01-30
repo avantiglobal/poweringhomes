@@ -69,7 +69,7 @@
                     <div class="col-8 ml-auto align-self-center">
                       <div class="float-right">
                         <a href="/message/list" class="stretched-link"><h5 class="mt-0 round-inner"><?php echo $messages_total ?></h5></a>
-                        <p class="mb-0">Messages today</p>
+                        <p class="mb-0">Unread Messages</p>
                       </div>
                     </div>
                   </div>
