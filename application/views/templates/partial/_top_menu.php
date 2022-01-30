@@ -11,7 +11,7 @@
       <!-- <a class="nav-link" href="#">Settings</a> -->
       <a class="nav-link" href="/message/list">
         Messages
-        <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span>
+        <!-- <span class="badge bg-light text-dark rounded-pill align-text-bottom">27</span> -->
       </a>
     </nav>
   </div>
