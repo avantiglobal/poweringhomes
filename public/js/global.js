@@ -17,6 +17,21 @@ $(document).ready(function () {
     //Onload function
     $(document).ready(function () {
         $('#data_table').DataTable();
+
+        const messageRead = $('#message-read').val();
+        if (messageRead !== undefined) {
+            const messageId = $('#message-id').val();
+            console.log('[MESSAGE ID]', messageId);
+            $.ajax({
+                type: "POST",
+                url: "/message/setMessageRead",
+                dataType: "json",
+                data: "id=" + messageId,
+                success: function (data) {
+                    // console.log(data);
+                }
+            });
+        }
     });
     // $(function () {
     //     $('#data_table').DataTable({
@@ -96,7 +111,7 @@ $(document).ready(function () {
         //alert('Controller: ' + controller +' -- Action: ' + action + ' -- Query: ' + query)
         // console.log('Este es el Id del TR: ' + table_name + '/' + query);
         var url = '/' + controller + '/' + action + '/' + query;
-        //console.log(url);
+        // console.log('[URL]', url);
         window.location = url;
     });
     // Create User
@@ -1168,10 +1183,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    function messageRead(msgId) {
-        alert('MEssage read', msgId);
-    }
 });
 
 function isNumeric(str) {

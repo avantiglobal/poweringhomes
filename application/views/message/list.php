@@ -31,7 +31,7 @@
 									<?php 
 										foreach ($messages as $row) {
 									?>
-									<tr class="tr_table<?php if ($row['message_read'] == 0)  echo " table-info" ?>" data-query="<?php  echo $row['id'] ?>" data-action="edit" >
+									<tr class="tr_table<?php if ($row['message_read'] == 0)  echo " table-info" ?>" data-query="<?php  echo $row['message_id'] ?>" data-action="edit" >
 										<!-- <td><?php //echo $row['id'] ?></td> -->
 										<td class="fw-bold m-0"><?php echo $row['sender'] ?></td>
 										<td class="text-muted">

@@ -21,7 +21,7 @@ class Post extends Model {
 
     public function getPost($id){
         $strQuery = "SELECT post.id, post.title_seo, post.title, post.summary, post.content, post.post_image, category.name AS category FROM ".$this->_table." 
-                    LEFT JOIN category ON ".$this->_table.".category = category.id WHERE (post.id = '".$id."' OR title_seo = '".$id."') ";
+                    LEFT JOIN category ON ".$this->_table.".category = category.id WHERE (post.id = '".$id."' OR title_seo = '".$id."')";
         return $this->query($strQuery, true);
     }
 

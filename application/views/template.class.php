@@ -20,7 +20,7 @@ class Template {
     }
 
     // Display Template
-    function render($theme, $doNotRenderHeader = 0, $doNotRenderHTML = 0, $doNotRenderSidebar = 0, 
+    function render($theme = 'poweringhomes', $doNotRenderHeader = 0, $doNotRenderHTML = 0, $doNotRenderSidebar = 0, 
                     $doNotRenderContentHeader = 0, $doNotRenderFooter = 0, $doNotRenderControlSidebar = 1) {//TODO: Improve this by getting an array
         
         // HTML helpers
@@ -62,15 +62,15 @@ class Template {
                 if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) . '/header.php')) {
                     include (PUBLIC_PATH . $themePath . $theme . '/' . strtolower($this->_controller) . '/header.php');
                 } else {
-                    include (PUBLIC_PATH . $themePath . $theme .'/header.php');
+                    @include (PUBLIC_PATH . $themePath . $theme .'/header.php');
                 }
             }
 
-            if ($doNotRenderSidebar == 0) {
-                if (file_exists(PUBLIC_PATH . $themePath.$theme.'/sidebar-menu.php')) {
-                    include (PUBLIC_PATH . $themePath.$theme.'/sidebar-menu.php');
-                }
-            }
+            // if ($doNotRenderSidebar == 0) {
+            //     if (file_exists(PUBLIC_PATH . $themePath.$theme.'/sidebar-menu.php')) {
+            //         include (PUBLIC_PATH . $themePath.$theme.'/sidebar-menu.php');
+            //     }
+            // }
 
             // Main Content    
             if (file_exists(APPLICATION_PATH.'/views/'.strtolower($this->_controller).'/'.$this->_action.'.php')) {
@@ -84,7 +84,7 @@ class Template {
                 if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) . '/footer.php')) {
                     include (PUBLIC_PATH . $themePath . $theme .'/'.strtolower($this->_controller) . '/footer.php');
                 } else {
-                    include (PUBLIC_PATH . $themePath . $theme .'/'.'footer.php');
+                    @include (PUBLIC_PATH . $themePath . $theme .'/'.'footer.php');
                 }
             }
 

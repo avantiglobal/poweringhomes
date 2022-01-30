@@ -25,8 +25,8 @@ class Message extends Model {
     }
 
     public function getMessages($limit = 5){
-        $cWhere = " ORDER BY message.created_on DESC LIMIT 0, " . $limit;
-        return $this->query("SELECT message.id, CONCAT(client.name, ' ', client.lastname) AS sender, message, state, DATE_FORMAT(message.created_on,'%m/%d/%Y') AS message_date, message_read 
+        $cWhere = " ORDER BY message.id DESC LIMIT 0, " . $limit;
+        return $this->query("SELECT message.id AS message_id, CONCAT(client.name, ' ', client.lastname) AS sender, message, state, DATE_FORMAT(message.created_on,'%m/%d/%Y') AS message_date, message_read 
                              FROM ".$this->_table." 
                              INNER JOIN client ON ".$this->_table.".client_id = client.id ".
                              $cWhere );

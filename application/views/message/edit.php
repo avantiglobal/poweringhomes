@@ -118,10 +118,11 @@
 					<div class="card card-solid bg-dark-gray color-white">
 						<!-- <div class="card-header"><i class="fa fa-gear"></i> <h4 class="card-title">Options</h4></div> -->
 						<div class="card-body">
+							Message ID: <?php echo $message_id ?>
 							<!-- <div class="row pt-4 pb-3">
 								<div class="col-12 text-center">
 									<div><h4>Bill Amount</h4></div>
-									<h2>$<?php echo $message['bill_amount'] ?></h2>
+									<h2>$<?php //echo $message['bill_amount'] ?></h2>
 								</div>
 							</div>
 							<hr>
@@ -130,11 +131,11 @@
 								<div class="col-12 mb-0">
 									<div class="p-0 px-3">
 										<?php 
-											$reqDate = date_create($message['created_on']);
+											//$reqDate = date_create($message['created_on']);
 										?>
 										<b>Request Date:</b> 
-										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
-											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										<span title="<?php //echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php //echo date_format($reqDate,"m/d/Y"); ?>
 										</span>
 									</div>
 								</div>
@@ -143,11 +144,11 @@
 								<div class="col-12">
 									<div class="px-3">
 										<?php 
-											$reqDate = date_create($message['updated_on']);
+											//$reqDate = date_create($message['updated_on']);
 										?>
 										<b>Last Update:</b> 
-										<span title="<?php echo date_format($reqDate,"m/d/Y H:i:s");?>">
-											<?php echo date_format($reqDate,"m/d/Y"); ?>
+										<span title="<?php //echo date_format($reqDate,"m/d/Y H:i:s");?>">
+											<?php //echo date_format($reqDate,"m/d/Y"); ?>
 										</span>
 									</div>
 								</div>
@@ -185,7 +186,8 @@
 
 					</div>
 				</div>
-				<input type="hidden" id="message-id" value="<?php echo $message['id'] ?>">
+				<input type="hidden" id="message-id"   value="<?php echo $message_id ?>">
+				<input type="hidden" id="message-read" value="1">
 			</div>
 			</div>
 		</div>

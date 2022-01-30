@@ -61,11 +61,13 @@ class SQLQuery {
             for ($i=0; $i < count($arrCols); $i++) { 
                 $updateValues[] = $arrCols[$i] .' = "' .$arrValues[$i] . '"';
             }
+            error_log('[UPATE]' . 'UPDATE '.$this->_table.' SET '.implode(',',$updateValues).' WHERE id = '. $id);
             $result = $this->_mysqli->real_query('UPDATE '.$this->_table.' SET '.implode(',',$updateValues).' WHERE id = '. $id);
             if ($result){
                 return $result;
             }else{
-                error_log('[UPDATE][MYSQL ERROR] ' . $this->getError());
+                // error_log('[UPDATE][MYSQL ERROR] ' . $this->getError());
+                error_log('[UPDATE][MYSQL ERROR] ');
                 exit;
             }
         }else{

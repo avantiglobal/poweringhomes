@@ -6,7 +6,7 @@ class UserController extends Controller {
     function beforeAction () {
         //$this->actionScope = 'public';
         //$this->setLayout('frontend');
-        $this->setTheme('poweringhomes');
+        $this->setTheme(Application::getConfig('default.theme'));
         //$this->set('user_img','/img/user/default.jpg');
         // $this->set('user_name', 'John Doe');
         //$this->set('sidebar_menu', '      ');

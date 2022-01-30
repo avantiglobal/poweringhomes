@@ -71,6 +71,7 @@ class MessageController extends Controller {
         $this->set('renderContentInline', 1);
         $this->set('page_header','Message Details');
         $this->Message->id = $args[0];
+        $this->set('message_id',$args[0]);
         $message = $this->Message->getMessageDetails($this->Message->id);
         $this->set('message', $message);
     }
@@ -78,13 +79,17 @@ class MessageController extends Controller {
     function update() {
         $this->doNotRenderHTML = 1;
         $values = 'name="'.$_POST['name'].'",lastname="'.$_POST['lastname'].'",email="'.$_POST['email'].
-                  '",phone="'.$_POST['phone'].'",address="'.$_POST['address'].'",username="'.$_POST['username'].
-                  '", password="'.hash('md5', $_POST['password']).'"';
+                    '",phone="'.$_POST['phone'].'",address="'.$_POST['address'].'",username="'.$_POST['username'].
+                    '", password="'.hash('md5', $_POST['password']).'"';
         
         $result = ($this->User->query('UPDATE song SET '.$values.' WHERE id = "'.$_POST['id'].'"', 1) == true ) 
-                  ? '{"result":"true"}' : '{"result":"false"}' ;
+                    ? '{"result":"true"}' : '{"result":"false"}' ;
             
         echo json_encode($result);
+    }
+
+    function setMessageRead($id){
+         $this->Message->update(['subject', 'message_read'], ['-','1'], $_POST['id']);
     }
     
     function afterAction() {
