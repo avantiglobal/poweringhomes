@@ -38,15 +38,17 @@
 				<div class="col-md-9">
 					<div class="row pb-3">
 						<div class="col-sm-12">
-							<input type="text" class="form-control input-lg" id="post-title" placeholder="Title" required value="<?php echo $post['title'] ?>" autofocus="" data-placement="bottom" autofocus>
+							<!-- <input type="text" class="form-control input-lg" id="post-title" placeholder="Title" required value="<?php //echo $post['title'] ?>" autofocus="" data-placement="bottom" autofocus> -->
+							<div class="form-floating">
+								<input type="text" class="form-control" id="post-title" placeholder="Post Title" value="<?php echo $post['title'] ?>">
+								<label for="post-title">Post Title</label>
+							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-12 mb-3">
 							<div class="form-floating">
-								<textarea class="form-control" placeholder="Leave a brief summary here" id="post-summary" name="post-summary" style="height: 100px">
-									<?php echo trim($post['summary']) ?>
-								</textarea>
+								<textarea class="form-control" placeholder="Leave a brief summary here" id="post-summary" name="post-summary" style="height: 100px"><?php echo trim($post['summary']) ?></textarea>
 								<label for="post-summary">Summary</label>
 							</div>
 						</div>
@@ -93,11 +95,28 @@
 									</form>
 								</div>
 							</div>
+
+							<div class="row my-3 text-center">
+								<div class="col-12">
+									<div class="form-floating">
+										<select class="form-select" id="post-category" name="post-category" aria-label="Post Category">
+											<option></option>
+											<?php foreach ($categories as $category) {
+												$selectedCat = ($post['category'] == $category["id"]) ? " selected" : "";
+												echo '<option value="'.$category["id"].'"'.$selectedCat.'>'.$category['name'].'</option>';
+											}?>
+										</select>
+										<label for="floatingSelect">Category</label>
+									</div>
+								</div>
+							</div>	
+
 							<div class="row">
 								<div class="col-sm-12 text-left">
 									<a class="btn btn-primary d-block" id="btn-save-post"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
 								</div>
 							</div>
+
 							<div class="row mt-3 text-center">
 								<!-- <div class="col-sm-4">Active</div>
 								<div class="col-sm-4 text-center pull-right">

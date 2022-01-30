@@ -101,22 +101,25 @@ class PostController extends Controller {
         $this->set('page_header','Edit Post');
         $post = $this->Post->select($this->Post->id);
         $this->set('post', $post);
+        $this->set('categories', $this->Post->getCategories());
     }
 
     function update($args) {
         $this->doNotRenderHTML = 1;
         //$values = ' title = "'.$_POST['title'].'", content = "'.$_POST['content'].'"';
         $content    = $_POST['content'];
-        $summary    = $_POST['summary'];
+        $summary    = trim($_POST['summary']);
         $content    = html_entity_decode($content);
         $content    = addslashes($content);
-        $summary    = html_entity_decode($summary);
-        $summary    = addslashes($summary);
+        $category   = $_POST['category'];
+        error_log('[CATEGORY] ' . $category);
+        //$summary    = html_entity_decode($summary);
+        //$summary    = addslashes($summary);
         $title_seo  = strtolower(trim(str_replace("'", "", $_POST['title'])));
         $title_seo  = preg_replace ('/[^\p{L}\p{N}]/u', '-', $title_seo);
         $title_seo  = preg_replace('/__+/', '-', $title_seo);
         $values     = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
-        $resultPost = $this->Post->update(['title_seo', 'title', 'summary', 'content'], [$title_seo, $_POST['title'], $summary, $content], $_POST['id']);
+        $resultPost = $this->Post->update(['title_seo', 'title', 'summary', 'content', 'category'], [$title_seo, $_POST['title'], $summary, $content, $category], $_POST['id']);
         
         if ($resultPost){
             echo json_encode(['result' => $resultPost ]);

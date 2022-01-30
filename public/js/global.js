@@ -555,6 +555,7 @@ $(document).ready(function () {
     $('#btn-save-post').click(function () {
         var title = $('#post-title').val();
         var summary = $('#post-summary').val();
+        var category = $('#post-category').val();
         var content = CKEDITOR.instances['post-content'].getData();
         //console.log('[CONTENT]', content);
         // var content = $('#post-content').val();
@@ -567,7 +568,7 @@ $(document).ready(function () {
                 type: "POST",
                 url: url,
                 dataType: "json",
-                data: "title=" + title + '&summary=' + summary + '&content=' + encodeURIComponent(content) + '&id=' + id,
+                data: "title=" + title + '&summary=' + summary + '&content=' + encodeURIComponent(content) + '&category=' + category + '&id=' + id,
                 success: function (data) {
                     console.log(data);
                     //var post = jQuery.parseJSON(data);

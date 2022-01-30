@@ -15,7 +15,7 @@
               </div>
               <div class="row">
                 <div class="col-12 fs-5 d-flex align-items-center mb-3">
-                  <?php echo $summary ?>"
+                  <?php echo $summary ?>
                 </div>
               </div>
               <div class="row">

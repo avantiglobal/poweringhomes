@@ -25,4 +25,8 @@ class Post extends Model {
         return $this->query($strQuery, true);
     }
 
+    public function getCategories(){
+        return $this->query("SELECT * FROM category");
+    }
+
 }
