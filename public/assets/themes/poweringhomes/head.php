@@ -14,8 +14,6 @@
     <link href="/assets/bootstrap_5/css/bootstrap-5.0.2.css" rel="stylesheet">
     <!-- Theme style -->
     <link href="/assets/themes/<?php echo Application::getConfig('default.theme') ?>/css/style.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     
     <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/aad2f2c4798bbbd103866dfb8/47fe970c6377c87506c6c1cf4.js");</script>
       <!-- Global site tag (gtag.js) - Google Analytics -->

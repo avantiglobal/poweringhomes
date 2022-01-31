@@ -7,6 +7,7 @@
     <!-- 
     <script src="/js/ui.js"></script> -->
     <script src="/js/global.js"></script> 
-
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
   </body>
 </html>
