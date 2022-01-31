@@ -11,7 +11,7 @@
             </div>
             <div class="overflow-hidden" style="max-height: 30vh;">
             <div class="container px-5">
-                <img src="/img/site/jeremy-bezanger-k8HniqcdYS4-unsplash.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Solar Panels" width="700" height="500" loading="lazy">
+                <img src="/img/site/aerial-view-privte-house-with-solar-panels-roof.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Solar Panels" width="700" height="500" loading="lazy">
             </div>
             </div>
         </div>
