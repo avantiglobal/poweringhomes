@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#000">
      <link rel="icon" href="<?php echo '/img/favico.png' ?>" sizes="32x32" />
 
-    <title><?php echo Application::getConfig("company.name") ?></title>
+    <title><?php echo Application::getConfig("company.name") ?> - Solar Energy | Solar Panels</title>
 
     <!-- Bootstrap 5 core CSS + Popper Bundle -->
     <link href="/assets/bootstrap_5/css/bootstrap-5.0.2.css" rel="stylesheet">
