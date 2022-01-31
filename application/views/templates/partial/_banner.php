@@ -1,4 +1,4 @@
-<div class="home-hero" style="background: url(/img/site/american-public-power-association-513dBrMJ_5w-unsplash.jpg); background-position: center; background-size:cover;">
+<div class="home-hero" style="background: url(/img/site/american-public-power-association-513dBrMJ_5w-unsplash.webp); background-position: center; background-size:cover;">
   <div class="home-hero__video-overlay">&nbsp;</div>
   <div class="home-hero__content-wrapper">
     <div class="container">

@@ -1,5 +1,5 @@
 <?php 
-  $image = "/img/site/solar-panels-close-up.jpg";
+  $image = "/img/site/solar-panels-close-up.webp";
 ?>
 <div class="why py-5" style="background: url(<?php echo $image ?>) no-repeat center center; z-index:1; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; background-attachment: fixed;">
   <div class="why__overlay">&nbsp;</div>
