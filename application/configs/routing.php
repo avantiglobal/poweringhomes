@@ -14,6 +14,7 @@ $routing = array(
     '/faqs/' => 'page/faqs',
     '/blog/' => 'post/all',
     '/terms-and-conditions/' => 'page/terms_and_conditions',
+    '/privacy/' => 'page/privacy',
     //'/api/' => 'api'
     // '/(.*)/' => 'post/view/\1_',
     // More Examples

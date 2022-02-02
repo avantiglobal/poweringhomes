@@ -193,7 +193,12 @@ class PageController extends Controller {
 
     function terms_and_conditions(){
         $this->actionScope = 'public';
-        $this->set('banner_title', 'FAQ\'s');
+        $this->set('banner_title', 'Terms And Conditions');
+    }
+
+    function privacy(){
+        $this->actionScope = 'public';
+        $this->set('banner_title', 'Privacy Policy');
     }
 
     function afterAction() {

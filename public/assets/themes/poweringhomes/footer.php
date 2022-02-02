@@ -23,7 +23,7 @@
       <h5>About</h5>
       <ul class="list-unstyled text-small">
         <li><a class="link-secondary" href="/areas-served">Areas Served</a></li>
-        <li><a class="link-secondary" href="#">Privacy</a></li>
+        <li><a class="link-secondary" href="/privacy">Privacy</a></li>
         <li><a class="link-secondary" href="#">Terms</a></li>
         <li><a class="link-secondary" href="/contact">Contact</a></li>
       </ul>
