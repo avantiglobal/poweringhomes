@@ -13,6 +13,7 @@ $routing = array(
     '/areas-served/' => 'page/areas_served',
     '/faqs/' => 'page/faqs',
     '/blog/' => 'post/all',
+    '/terms-and-conditions/' => 'page/terms_and_conditions',
     //'/api/' => 'api'
     // '/(.*)/' => 'post/view/\1_',
     // More Examples

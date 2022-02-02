@@ -21,10 +21,7 @@
                 <label for="zipcode-checker-input3">Zip Code</label>
               </div>
               <div class="text-danger d-none p-0 pb-2 text-center" id="zipcode-checker-form__banner__form-error">&nbsp;</div>
-              <button class="w-100 btn btn-lg btn-secondary" type="submit">Get Started</button>
-
-
-
+                <button class="w-100 btn btn-lg btn-secondary" type="submit">Get Started</button>
               </div>
             </div>
             <input type="hidden" class="zipcode_identifier" value="zipcode-checker-input3">

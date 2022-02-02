@@ -190,7 +190,11 @@ class PageController extends Controller {
         }
         exit;
     }
-    
+
+    function terms_and_conditions(){
+        $this->actionScope = 'public';
+        $this->set('banner_title', 'FAQ\'s');
+    }
 
     function afterAction() {
 
