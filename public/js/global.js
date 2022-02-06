@@ -42,14 +42,14 @@ $(document).ready(function () {
         function showLocation(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            alert("Latitude : " + latitude + " Longitude: " + longitude);
+            console.log("Latitude : " + latitude + " Longitude: " + longitude);
         }
 
         function errorHandler(err) {
             if (err.code == 1) {
-                alert("Error: Access is denied!");
+                console.log("Error: Geo localization Access is denied!");
             } else if (err.code == 2) {
-                alert("Error: Position is unavailable!");
+                console.log("Error: Position is unavailable!");
             }
         }
 
@@ -61,7 +61,7 @@ $(document).ready(function () {
                 var options = { timeout: 60000 };
                 navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
             } else {
-                alert("Sorry, browser does not support geolocation!");
+                console.log("Sorry, browser does not support geolocation!");
             }
         }
 
