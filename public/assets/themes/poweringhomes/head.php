@@ -16,13 +16,24 @@
     <link href="/assets/themes/<?php echo Application::getConfig('default.theme') ?>/css/style.css" rel="stylesheet">
     
       <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-208887301-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-208887301-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'UA-208887301-1');
+    </script> -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-219610412-1">
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-219610412-1');
     </script>
     <!-- Meta Pixel Code -->
     <script>
