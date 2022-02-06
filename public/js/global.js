@@ -32,6 +32,56 @@ $(document).ready(function () {
                 }
             });
         }
+
+        // var options = {
+        //     enableHighAccuracy: true,
+        //     timeout: 5000,
+        //     maximumAge: 0
+        // };
+
+        function showLocation(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            alert("Latitude : " + latitude + " Longitude: " + longitude);
+        }
+
+        function errorHandler(err) {
+            if (err.code == 1) {
+                alert("Error: Access is denied!");
+            } else if (err.code == 2) {
+                alert("Error: Position is unavailable!");
+            }
+        }
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+
+                // timeout at 60000 milliseconds (60 seconds)
+                var options = { timeout: 60000 };
+                navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+            } else {
+                alert("Sorry, browser does not support geolocation!");
+            }
+        }
+
+        getLocation();
+        // var url = new URL('https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/')
+        // //var params = { q: 'Indianapolis', days: 3 };
+        // //url.search = new URLSearchParams(params).toString();
+
+        // fetch(url, {
+        //     "method": "GET",
+        //     "headers": {
+        //         'x-rapidapi-host': 'ip-geolocation-ipwhois-io.p.rapidapi.com',
+        //         'x-rapidapi-key': '29b165ef87msh7c35f1e9599cea9p1efc23jsne9fe624941c6'
+        //     }
+        // })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         document.querySelector('#zipcode-checker-form__header__input').value = '123';
+        //         console.log('Data', data);
+        //     });
     });
     // $(function () {
     //     $('#data_table').DataTable({
