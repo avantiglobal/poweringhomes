@@ -7,10 +7,27 @@ class Template {
     protected $_action;
     protected $_layout;
     protected $_content;
+    protected $_user_language;
 
     function __construct($controller, $action) {
         $this->_controller = $controller;
         $this->_action = $action;
+        $this->_user_language = $this->getUserLang();
+    }
+
+    function getUserLang(){
+        if (Application::getConfig('default.user_lang_mgmt') == "auto"){
+            $tplLangs = Application::getConfig('template.languages');
+            $userLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            if (strpos($tplLangs, $userLang)){
+                return $userLang;
+            }else{
+                return Application::getConfig('default.user_language');
+            }
+        }else{
+            // To Do: user lang manual logic
+            return Application::getConfig('default.user_language');
+        }
     }
 
     // Set Variables
@@ -59,10 +76,11 @@ class Template {
             }
 
             if ($doNotRenderHeader == 0) {
-                if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) . '/header.php')) {
-                    include (PUBLIC_PATH . $themePath . $theme . '/' . strtolower($this->_controller) . '/header.php');
+                
+                if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) .'/'.$this->_user_language. '/header.php')) {
+                    include (PUBLIC_PATH . $themePath . $theme . '/' . strtolower($this->_controller) .'/'. $this->_user_language. '/header.php');
                 } else {
-                    @include (PUBLIC_PATH . $themePath . $theme .'/header.php');
+                    @include (PUBLIC_PATH . $themePath . $theme .'/'.$this->_user_language.'/header.php');
                 }
             }
 
@@ -73,18 +91,18 @@ class Template {
             // }
 
             // Main Content    
-            if (file_exists(APPLICATION_PATH.'/views/'.strtolower($this->_controller).'/'.$this->_action.'.php')) {
-                include (APPLICATION_PATH . '/views/' .strtolower($this->_controller).'/'.$this->_action.'.php');
+            if (file_exists(APPLICATION_PATH.'/views/'.strtolower($this->_controller).'/'.$this->_user_language.'/'.$this->_action.'.php')) {
+                include (APPLICATION_PATH . '/views/' .strtolower($this->_controller).'/'.$this->_user_language.'/'.$this->_action.'.php');
             }else{
                 echo "<p><br/>&nbsp;The application is trying to show the content of the following file " . 
-                        "<b>" .APPLICATION_PATH . '/views/' .strtolower($this->_controller).'/'.$this->_action.'.php</b>' . ", but this file does not exist.</p>";
+                        "<b>" .APPLICATION_PATH . '/views/' .strtolower($this->_controller).'/'.$this->_user_language.'/'.$this->_action.'.php</b>' . ", but this file does not exist.</p>";
             }
 
             if ($doNotRenderFooter == 0) {
-                if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) . '/footer.php')) {
-                    include (PUBLIC_PATH . $themePath . $theme .'/'.strtolower($this->_controller) . '/footer.php');
+                if (file_exists(PUBLIC_PATH . $themePath . $theme .'/'. strtolower($this->_controller) . '/' .$this->_user_language. '/footer.php')) {
+                    include (PUBLIC_PATH . $themePath . $theme .'/'.strtolower($this->_controller) . '/' .$this->_user_language. '/footer.php');
                 } else {
-                    @include (PUBLIC_PATH . $themePath . $theme .'/'.'footer.php');
+                    @include (PUBLIC_PATH . $themePath . $theme .'/'.$this->_user_language.'/footer.php');
                 }
             }
 

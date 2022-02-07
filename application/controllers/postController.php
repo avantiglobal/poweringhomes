@@ -53,8 +53,9 @@ class PostController extends Controller {
     }
 
     function all($args) {
+        error_log('[This]:' . json_encode($this));
         $cWhere = empty($args[0]) ? '' : ' AND category.name = "' . str_replace('-',' ',strtolower($args[0])) . '"' ;
-
+        //$cSubtitle = $this->_user_language == "en" ? 'Stay informed about our news and insights.' : 'Manténgase informado sobre nuestras noticias y recomendaciones.';
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');

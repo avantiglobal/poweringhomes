@@ -65,7 +65,7 @@ $(document).ready(function () {
         //     }
         // }
 
-        getLocation();
+        //getLocation();
         // var url = new URL('https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/')
         // //var params = { q: 'Indianapolis', days: 3 };
         // //url.search = new URLSearchParams(params).toString();
