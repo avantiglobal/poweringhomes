@@ -621,12 +621,14 @@ $(document).ready(function () {
     });
     /* Save Post */
     $('#btn-save-post').click(function () {
+
         var title = $('#post-title').val();
         var summary = $('#post-summary').val();
         var category = $('#post-category').val();
         var content = CKEDITOR.instances['post-content'].getData();
         //console.log('[CONTENT]', content);
-        // var content = $('#post-content').val();
+        var lang = $('#post-lang').val();
+        console.log('[LANG]', lang);
         var id = $('#post-id').val();
         var url = (id === '') ? "/post/add" : "/post/update";
         // alert(url);
@@ -636,9 +638,9 @@ $(document).ready(function () {
                 type: "POST",
                 url: url,
                 dataType: "json",
-                data: "title=" + title + '&summary=' + summary + '&content=' + encodeURIComponent(content) + '&category=' + category + '&id=' + id,
+                data: "title=" + title + '&summary=' + summary + '&content=' + encodeURIComponent(content) + '&category=' + category + '&lang=' + lang + '&id=' + id,
                 success: function (data) {
-                    console.log(data);
+                    //console.log('[DATA]', data);
                     //var post = jQuery.parseJSON(data);
                     if (data.result === true) {
                         if (id === '') {
@@ -666,6 +668,9 @@ $(document).ready(function () {
                             $("#preloader").html("");
                         }
                     }
+                },
+                error: function () {
+                    console.log('Error');
                 },
                 beforeSend: function () {
                     $("#preloader").html("<i class='fa fa-spinner fa-spin'>");

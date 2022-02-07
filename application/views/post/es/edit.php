@@ -3,7 +3,9 @@
 <!-- <script src="<?php //echo LIBRARY_PATH . "/ckeditor/ckeditor.js" ?>"></script> --> 
 <script src="/assets/ckeditor/ckeditor.js"></script>
 <!-- Header Template -->
-<?php include_once(TEMPLATE_PATH . '/partial/'.$this->_user_language.'/_top_menu.php')  ?>
+<?php include_once(TEMPLATE_PATH . '/partial/'.$this->_user_language.'/_top_menu.php');
+	$arrLanguages = ["en" => "English", "es" => "Espa&ntilde;ol"];
+?>
 
 <main>
 	<!-- alert  TODO: include this in a HTML helper-->
@@ -84,12 +86,12 @@
 											<?php } ?>
 										</div>
 										<div class="d-none">
-											<label for="file">Choose file to upload</label>
+											<label for="file">Elegir imagen para subir</label>
 											<input type="file" id="entity_image" name="entity_image" accept="image/*">
 										</div>
 										<div class="text-center pt-1 pb-3">
-											<small id="update-image-label">Click to select a new image</small>
-											<button class="btn btn-secondary text-center d-none" id="btn-update-img">Update Image</button>
+											<small id="update-image-label">Haga Click para seleccionar una nueva imagen</small>
+											<button class="btn btn-secondary text-center d-none" id="btn-update-img">Actualizar Image</button>
 										</div>
 										<input type="hidden" id="post_id" value="<?php echo $post['id'] ?>">
 									</form>
@@ -106,14 +108,29 @@
 												echo '<option value="'.$category["id"].'"'.$selectedCat.'>'.$category['name'].'</option>';
 											}?>
 										</select>
-										<label for="floatingSelect">Category</label>
+										<label for="floatingSelect">Categor&iacute;a</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row my-3 text-center">
+								<div class="col-12">
+									<div class="form-floating">
+										<select class="form-select" id="post-lang" name="post-lang" aria-label="Post Language">
+											<option></option>
+											<?php foreach ($arrLanguages as $key => $language) {
+												$selectedLang = ($post['lang'] == $key) ? " selected" : "";
+												echo '<option value="'.$key.'"'.$selectedLang.'>'. $language.'</option>';
+											}?>
+										</select>
+										<label for="floatingSelect">Idioma</label>
 									</div>
 								</div>
 							</div>	
 
 							<div class="row">
 								<div class="col-sm-12 text-left">
-									<a class="btn btn-primary d-block" id="btn-save-post"><i class="bi bi-save"></i> &nbsp;Save <i id="preloader"></i></a>
+									<a class="btn btn-primary d-block" id="btn-save-post"><i class="bi bi-save"></i> &nbsp;Guardar <i id="preloader"></i></a>
 								</div>
 							</div>
 
@@ -125,7 +142,7 @@
 									<span class="slider round"></span>
 									</label>
 								</div> -->
-								<a href="#" class="text-danger pt-3" id="post-delete" data-id="<?php echo $post['id'] ?>"><i class="bi bi-trash"></i> Delete Post</a>
+								<a href="#" class="text-danger pt-3" id="post-delete" data-id="<?php echo $post['id'] ?>"><i class="bi bi-trash"></i> Borrar Post</a>
 							</div>
 
 						</div>

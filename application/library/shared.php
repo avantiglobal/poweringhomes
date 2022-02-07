@@ -135,3 +135,19 @@ function get_time_ago($time) {
         }
     }
 }
+
+function getUserLang(){
+    error_log('[GET USER LANG]');
+    if (Application::getConfig('default.user_lang_mgmt') == "auto"){
+        $tplLangs = Application::getConfig('template.languages');
+        $userLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        if (strpos($tplLangs, $userLang)){
+            return $userLang;
+        }else{
+            return Application::getConfig('default.user_language');
+        }
+    }else{
+        // To Do: user lang manual logic
+        return Application::getConfig('default.user_language');
+    }
+}

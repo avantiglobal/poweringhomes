@@ -53,22 +53,24 @@ class PostController extends Controller {
     }
 
     function all($args) {
-        error_log('[This]:' . json_encode($this));
-        $cWhere = empty($args[0]) ? '' : ' AND category.name = "' . str_replace('-',' ',strtolower($args[0])) . '"' ;
-        //$cSubtitle = $this->_user_language == "en" ? 'Stay informed about our news and insights.' : 'Manténgase informado sobre nuestras noticias y recomendaciones.';
+        // error_log('[This]:' . json_encode($this));
+        $userLang = getUserLang();
+        $cWhere = empty($args[0]) ? '' : ' AND category.name = "' . str_replace('-',' ',strtolower($args[0])) . '" ' ;
+        $cSubtitle = $userLang == "en" ? 'Stay informed about our news and insights.' : 'Manténgase informado sobre nuestras noticias y recomendaciones.';
         $this->set('page_header', 'Posts');
         $this->set('page_description', 'Posts');
         $this->set('banner_title', 'Blog');
-        $this->set('banner_subtitle', 'Stay informed about our news and insights.');
-        $this->set('posts',$this->Post->query("SELECT post.id, post.title_seo, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category
+        $this->set('banner_subtitle', $cSubtitle);
+        $this->set('posts',$this->Post->query("SELECT post.id, post.title_seo, post.title, post.summary, post.date, post.status, post.post_image, post.updated_on, post.category, post.lang
                                                 FROM post
                                                 LEFT JOIN category ON post.category = category.id
-                                                WHERE post.status = 1 " . $cWhere . " ORDER BY post.updated_on DESC"));
+                                                WHERE post.status = 1 " . $cWhere . " AND post.lang = 'es' ORDER BY post.updated_on DESC"));
     
         $this->set('categories', $this->Post->query("SELECT DISTINCT category.id, category.name AS category_name 
                                                         FROM category 
                                                         LEFT JOIN post ON post.category = category.id 
                                                         ORDER BY category_name DESC LIMIT 0,20"));
+        error_log('[POST LIST CONTROLLER] 1' . $userLang);
     }    
      
     function add() {
@@ -120,7 +122,7 @@ class PostController extends Controller {
         $title_seo  = preg_replace ('/[^\p{L}\p{N}]/u', '-', $title_seo);
         $title_seo  = preg_replace('/__+/', '-', $title_seo);
         $values     = ' title = "'.$_POST['title'].'", content = "'.$content.'"';
-        $resultPost = $this->Post->update(['title_seo', 'title', 'summary', 'content', 'category'], [$title_seo, $_POST['title'], $summary, $content, $category], $_POST['id']);
+        $resultPost = $this->Post->update(['title_seo', 'title', 'summary', 'content', 'category', 'lang'], [$title_seo, $_POST['title'], $summary, $content, $category, $_POST['lang']], $_POST['id']);
         
         if ($resultPost){
             echo json_encode(['result' => $resultPost ]);
