@@ -3,7 +3,9 @@
 <!-- <script src="<?php //echo LIBRARY_PATH . "/ckeditor/ckeditor.js" ?>"></script> --> 
 <script src="/assets/ckeditor/ckeditor.js"></script>
 <!-- Header Template -->
-<?php include_once(TEMPLATE_PATH . '/partial/'.$this->_user_language.'/_top_menu.php')  ?>
+<?php include_once(TEMPLATE_PATH . '/partial/'.$this->_user_language.'/_top_menu.php');
+	$arrLanguages = ["en" => "English", "es" => "Espa&ntilde;ol"];
+?>
 
 <main>
 	<!-- alert  TODO: include this in a HTML helper-->
@@ -107,6 +109,21 @@
 											}?>
 										</select>
 										<label for="floatingSelect">Category</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row my-3 text-center">
+								<div class="col-12">
+									<div class="form-floating">
+										<select class="form-select" id="post-lang" name="post-lang" aria-label="Post Language">
+											<option></option>
+											<?php foreach ($arrLanguages as $key => $language) {
+												$selectedLang = ($post['lang'] == $key) ? " selected" : "";
+												echo '<option value="'.$key.'"'.$selectedLang.'>'. $language.'</option>';
+											}?>
+										</select>
+										<label for="floatingSelect">Language</label>
 									</div>
 								</div>
 							</div>	
