@@ -1,6 +1,8 @@
 <?php
 
 class PageController extends Controller {
+
+    public $Page;
     
     function beforeAction () {
         // $this->actionScope = 'public';

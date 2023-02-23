@@ -18,7 +18,7 @@
               </div>
               <div class="bg-light p-1 d-flex justify-content-end px-2"><a href="/quote/list"><i class="bi bi-eye"></i> View All </a></div>
               <?php //echo $todo;
-                if (sizeof($quotes) > 0){
+                if (count($quotes) > 0){
               ?>
                   <table id="data_table" data-table-name="user" class="table table-hover">
                     <!-- <thead>

@@ -2,6 +2,8 @@
 
 
 class MessageController extends Controller {
+    public $Message;
+    protected $User;
     
     function beforeAction () {
         //$this->setLayout('frontend');
@@ -24,6 +26,7 @@ class MessageController extends Controller {
     }
     
     function view($id = null,$name = null) {
+        $user = '';
         $this->doNotRenderContentHeader = 1;
         $this->set('page_header', 'User profile');
         $this->set('page_description', 'Songs');

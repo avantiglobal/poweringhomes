@@ -1,6 +1,9 @@
 <?php
 
 class AssetsController extends Controller {
+
+    public $Assets;
+    protected $Site;
     
     function beforeAction () {
 

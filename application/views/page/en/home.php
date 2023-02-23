@@ -1,7 +1,8 @@
 <?php //if (!isset($_SESSION['id'])){ }?> 
 
 <main>
-  <?php includeTpl('/partial/'.$this->_user_language.'/_banner') ?>
+  <?php //includeTpl('/partial/'.$this->_user_language.'/_banner') ?>
+  <?php includeTpl('/partial/'.$this->_user_language.'/_banner_test') ?>
   <?php includeTpl('/partial/'.$this->_user_language.'/_about') ?>
   <?php includeTpl('/partial/'.$this->_user_language.'/_process') ?>
   <?php includeTpl('/partial/'.$this->_user_language.'/_why') ?>

@@ -10,11 +10,12 @@
  */
 class Controller {
 
-    protected $model;
+    
     protected $_controller;
     protected $_action;
     protected $_template;
 
+    public $model;
     public $auth = true;
     public $doNotRenderHeader = 0;
     public $doNotRenderSidebar = 0;

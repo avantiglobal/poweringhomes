@@ -1,6 +1,8 @@
 <?php
 
 class PostController extends Controller {
+
+    public $Post;
     
     function beforeAction () {
         $this->actionScope = 'public';

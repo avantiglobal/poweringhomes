@@ -1,6 +1,8 @@
 <?php
 
 class ClientController extends Controller {
+
+    public $Client;
     
     function beforeAction () {
 

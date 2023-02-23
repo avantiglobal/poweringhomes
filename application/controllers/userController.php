@@ -3,6 +3,8 @@
 
 class UserController extends Controller {
     
+    public $User;
+    
     function beforeAction () {
         //$this->actionScope = 'public';
         //$this->setLayout('frontend');

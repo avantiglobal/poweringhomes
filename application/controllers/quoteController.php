@@ -2,6 +2,9 @@
 
 
 class QuoteController extends Controller {
+
+    public $Quote;
+    protected $User;
     
     function beforeAction () {
         $this->setTheme(Application::getConfig('default.theme'));
